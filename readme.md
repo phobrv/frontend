@@ -33,3 +33,17 @@ php artisan jetstream:install livewire
 npm install
 npm run build
 ```
+
+### Step5: spatie/laravel-permission
+
+```
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+```
+
+Add the necessary trait to your User model:
+
+```
+use Spatie\Permission\Traits\HasRoles;
+
+use HasRoles;
+```
