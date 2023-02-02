@@ -7,6 +7,7 @@ composer.json with the file composer.json.exam
 .env with the file .env.exam
 webpack.mix.js with the file webpack.mix.js.exam
 package.json with the file package.json.exam
+User.php with the file User.php.exam
 
 ```
 
