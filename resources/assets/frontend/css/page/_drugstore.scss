@@ -1,0 +1,61 @@
+.drug_page table td {
+    border: 1px solid;
+    padding: 2px;
+}
+
+#drugstore_show {
+    font-size: 15px;
+
+    .item {
+        clear: both;
+        padding: 20px 0;
+        border-bottom: 1px solid $color-grey-light-2;
+        overflow: hidden;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .diemban_title {
+            text-transform: uppercase;
+            font-size: 18px;
+            background: url(../img/icon_local.png) no-repeat left center;
+            padding-left: 25px;
+            line-height: 30px;
+            color: $color-orange;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: $color-orange;
+            }
+        }
+    }
+
+    .regions {
+        float: left;
+        width: 25%;
+        margin: 5px 0;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: $color-orange;
+        }
+
+        @media(max-width: 992px) {
+            width: 33%;
+        }
+
+        @media(max-width: 768px) {
+            width: 50%;
+        }
+
+        a {
+            background: url(../img/icon_arrow_orange.png) no-repeat left center;
+            font-size: 14px;
+            padding-left: 15px;
+            color: #333;
+        }
+    }
+}

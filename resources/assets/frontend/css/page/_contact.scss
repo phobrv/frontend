@@ -1,0 +1,140 @@
+#gmap {
+    position: relative;
+    padding-bottom: 35%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+#contact-page {
+    padding: 30px 0;
+    .social-networks {
+        overflow: hidden;
+        text-align: center;
+        ul {
+            margin-top: -5px;
+            padding: 0;
+            display: inline-block;
+            li {
+                float: left;
+                text-decoration: none;
+                list-style: none;
+                margin-right: 20px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    color: #999;
+                    font-size: 25px;
+                }
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    fill: #999;
+                }
+            }
+        }
+    }
+    .btn-submit {
+        padding: 6px 15px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        &:hover {
+            color: white;
+            opacity: 0.75;
+        }
+    }
+    svg {
+        width: 20px;
+        height: 20px;
+        fill: #616161;
+    }
+}
+
+#contact-page2 {
+    padding: 45px 0;
+    background-image: url(/img/bg_intro_top.png);
+    background-size: cover;
+    background-position: top right;
+    background-repeat: no-repeat;
+    h1,
+    h3 {
+        font-size: 28px;
+    }
+    h2 {
+        font-size: 17px;
+        line-height: 28px;
+    }
+    svg {
+        width: 24px;
+        height: 24px;
+        fill: #616161;
+    }
+    .meta {
+        font-size: 17px;
+        color: #616161;
+        li {
+            margin-bottom: 8px;
+        }
+        i {
+            padding-right: 10px;
+        }
+    }
+    .right {
+        border-left: 1px solid #ddd;
+        padding-left: 25px;
+    }
+    .btn-submit {
+        border: unset;
+        background-color: $color-primary;
+        width: 100%;
+        padding: 5px;
+        color: white;
+    }
+}
+
+#contact-page3 {
+    .info {
+        margin-bottom: 20px;
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+        li {
+            padding: 10px 0;
+        }
+    }
+    .form {
+        position: relative;
+        .input {
+            padding: 35px 20px 20px 20px;
+            border: 1px solid #ddd;
+            .title {
+                position: absolute;
+                width: fit-content;
+                top: -10px;
+                left: 16px;
+                background: white;
+                padding: 0px 10px;
+            }
+        }
+    }
+    .btn-submit {
+        text-align: center;
+        width: 100%;
+        background-color: $color-primary;
+        padding: 5px;
+        color: white;
+        border: 0;
+        text-transform: uppercase;
+    }
+    #gmap {
+        padding-bottom: 60%;
+    }
+}

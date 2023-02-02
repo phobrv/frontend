@@ -1,0 +1,96 @@
+.slideStyle1 {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: auto;
+
+        &:after {
+            display: inline-block;
+            font-size: 20px;
+            cursor: pointer;
+            line-height: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 9;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+            background: rgba(255, 255, 255, 0);
+            -webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
+            -moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
+            transition: transform ease-out 0.1s, background 0.2s;
+        }
+
+        &:hover,
+        &:focus {
+            &:after {
+                background-color: $color-primary;
+                color: white;
+            }
+        }
+    }
+}
+
+.slideStyle2 {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: auto;
+
+        &:after {
+            display: inline-block;
+            font-size: 20px;
+            cursor: pointer;
+            line-height: 60px;
+            width: 30px;
+            height: 60px;
+            text-align: center;
+            position: relative;
+            z-index: 9;
+            color: $color-grey;
+            border: 1px solid $color-grey;
+            background: rgba(255, 255, 255, 0);
+            transition: transform ease-out 0.1s, background 0.2s;
+        }
+
+        &:hover,
+        &:focus {
+            &:after {
+                background-color: $color-grey;
+                color: white;
+            }
+        }
+    }
+}
+
+#slideCateProduct {
+    .swiper-slide {
+        padding: 12px;
+        background: rgba(200, 200, 200, 0.3);
+        position: relative;
+
+        .inner {
+            position: relative;
+            border: solid 1px #f1592a;
+
+            .info {
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                margin: 0px;
+                padding: 10px;
+                font-size: 18px;
+                color: #555;
+                font-family: "exo-b";
+                text-transform: uppercase;
+                font-weight: normal;
+                background: rgba(241, 89, 42, 0.9);
+                width: 100%;
+                text-align: center;
+                color: white;
+            }
+        }
+    }
+}

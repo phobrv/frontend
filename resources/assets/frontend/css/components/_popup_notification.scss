@@ -1,0 +1,13 @@
+#popup-notification{
+	box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+	top: 500px;
+	left: 10px;
+	height: 83px;
+	width: 350px;
+	border:1px solid  #d9d9d9;
+	padding: 8px 20px;
+	z-index: 101;
+	position: fixed;
+	background-color: #fff;
+	font-size: 15px;
+}

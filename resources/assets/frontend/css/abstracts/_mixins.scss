@@ -1,0 +1,35 @@
+@-webkit-keyframes my {
+    0% {
+        color: #000;
+    }
+    100% {
+        color: #FFFF
+    }
+}
+
+@-moz-keyframes my {
+    0% {
+        color: #000
+    }
+    100% {
+        color: #FFF
+    }
+}
+
+@-o-keyframes my {
+    0% {
+        color: #000;
+    }
+    100% {
+        color: #fff
+    }
+}
+
+@keyframes my {
+    0% {
+        color: #000
+    }
+    100% {
+        color: #fff
+    }
+}

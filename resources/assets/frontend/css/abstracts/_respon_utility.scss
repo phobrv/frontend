@@ -1,0 +1,50 @@
+/*Hidden down*/
+.hidden-lg-down{
+	@media(max-width: 1200px){
+		display: none!important;
+	}
+}
+.hidden-md-down{
+	@media(max-width: 992px){
+		display: none!important;
+	}
+}
+.hidden-sm-down{
+	@media(max-width: 768px ){
+		display: none!important;
+	}
+}
+.hidden-xs-down{
+	@media(max-width: 544px){
+		display: none!important;
+	}
+}
+
+/*Hidden up*/
+.hidden-sm-up{
+	@media(min-width: 544px){
+		display: none!important;
+	}
+}
+.hidden-md-up{
+	@media(min-width: 768px){
+		display: none;
+	}
+}
+.hidden-lg-up{
+	@media(min-width: 992px){
+		display: none!important;
+	}
+}
+.hidden-xl-up{
+	@media(min-width: 1200px){
+		display: none!important;
+	}
+}
+
+
+
+
+
+
+

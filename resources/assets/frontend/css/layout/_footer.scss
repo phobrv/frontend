@@ -1,0 +1,27 @@
+footer{
+	padding: 20px 0 30px 0;
+	background-color: #222;
+	color: #cccccc;
+	.ftitle{
+		font-size: 20px;
+		line-height: 28px;
+		text-transform: uppercase;
+	}
+	.fmenu{
+		li{
+			padding : 3px 0;
+			a{
+				color: #cccccc;
+			}
+		}
+	}
+}
+#copyright{
+	background-color: #000;
+	text-align: center;
+	padding: 8px;
+	color: #989898;
+}
+
+#bttop{text-align:center;position:fixed;bottom:25%;right:10px;cursor:pointer;display:none;color:#fff;font-size:11px;font-weight:900;}
+#bttop:hover{opacity: 0.7;}

@@ -1,0 +1,71 @@
+.concern {
+    &__style1 {
+        //Dimjsc
+        .item {
+            background-color: #fafafa;
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            .info {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                min-height: 44px;
+                h3 {
+                    font-size: 18px;
+                    line-height: 26px;
+                }
+            }
+            .thumb {
+                overflow: hidden;
+            }
+            &:hover {
+                .thumb {
+                    img {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+    &__style2 {
+        background-color: #fafafa;
+        padding: 15px;
+        border-radius: 10px;
+        .title-concern {
+            border-bottom: 1px solid #ddd;
+        }
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: $color-primary;
+        }
+        a {
+            &:hover {
+                color: orangered;
+            }
+        }
+    }
+    &__style3 {
+        .title {
+            border-bottom: 1px solid $color-grey-light-1;
+        }
+        ul {
+            li {
+                a {
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                        fill: $color-primary;
+                    }
+                    color: $color-primary;
+                    font-size: 16px;
+                    line-height: 1;
+                    &:hover {
+                        color: $color-primary-light;
+                    }
+                }
+            }
+        }
+    }
+}

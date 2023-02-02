@@ -1,0 +1,182 @@
+#boxRequest {
+    padding: 15px;
+    &.fixed {
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        position: fixed;
+        top: 20px;
+        max-width: 260px;
+    }
+    .btn-request {
+        background-color: $color-primary;
+        padding: 8px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 20px;
+        margin: 20px 0;
+    }
+    .hotline {
+        border: 1px solid $color-primary;
+        padding: 8px;
+        border-radius: 20px;
+        color: $color-primary;
+        display: flex;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        svg {
+            width: 22px;
+            height: 22px;
+            fill: $color-primary;
+        }
+    }
+    .share {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#modalRequest {
+    .modal-content {
+        .modal-title {
+            font-size: 20px;
+            font-family: "Exo", sans-serif;
+            font-weight: 700;
+            line-height: 28px;
+        }
+        .modal-body {
+            h2 {
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 26px;
+            }
+            label {
+                font-weight: bold;
+            }
+            .btn-sent {
+                background-color: $color-primary;
+                color: white;
+                border: none;
+                padding: 8px 30px;
+                border-radius: 20px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.box-comment {
+    .error {
+        border-color: red;
+    }
+    #btn_cmnt {
+        background-color: #060;
+        border: none;
+        padding: 6px 20px;
+        color: white;
+    }
+    #close_cmt {
+        background-color: red;
+        border: none;
+        padding: 6px 20px;
+        color: white;
+    }
+    #commentBody {
+        background-color: #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    #commentList {
+        margin-top: 20px;
+        ol {
+            padding-left: 0px;
+        }
+        li {
+            list-style: none;
+        }
+        .avatar {
+            height: 50px;
+            width: 50px;
+            left: 0;
+            border-radius: 4px;
+            position: absolute;
+        }
+        .fn {
+            color: #00af91;
+        }
+        .reply {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            z-index: 2;
+        }
+        .comment-body {
+            position: relative;
+            padding-top: 1.5em;
+            border-bottom: 1px solid;
+            border-color: #eee;
+            background-color: transparent;
+            margin-bottom: 0;
+            padding-left: 70px;
+            padding-bottom: 10px;
+        }
+        .children {
+            margin: 0;
+            padding: 0;
+            margin-left: 4em !important;
+        }
+    }
+}
+
+#boxReCaptcha {
+    .modal-content {
+        background-color: transparent;
+        border: 0;
+    }
+    .modal-body {
+        padding: 3px;
+    }
+}
+
+#modalSuccess {
+    .modal-content {
+        position: relative;
+        .modal-body {
+            padding: 45px 25px;
+            text-align: center;
+            .icon {
+                position: absolute;
+                top: -50px;
+                left: calc(50% - 62px);
+                svg {
+                    width: 125px;
+                    height: 125px;
+                }
+                .over {
+                    width: 100px;
+                    height: 100px;
+                    background-color: white;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 13px;
+                    left: 13px;
+                    z-index: -1;
+                }
+            }
+            .title {
+                font-size: 35px;
+                line-height: 43px;
+                margin-top: 30px;
+            }
+            .desc {
+                font-size: 20px;
+                line-height: 28px;
+                margin-top: 25px;
+            }
+        }
+    }
+}

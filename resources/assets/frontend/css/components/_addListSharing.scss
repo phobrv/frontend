@@ -1,0 +1,65 @@
+.addListSharing {
+	position: fixed;
+	bottom: 200px;
+	z-index: 999;
+	right: 0;
+	opacity: 1;
+	visibility: visible;
+	animation: moveInRight 0.5s ease-out;
+	display: none;
+	@media (max-width:1200px) {
+		display: block !important;
+	}
+	.addThis_listing {
+		margin: 0 0 15px 20px;
+		padding: 0;
+		.addThis_item {
+			margin-bottom: 5px;
+			.addThis_item--icon {
+				background: #11301b;
+				position: relative;
+				text-align: center;
+				width: 44px;
+				height: 44px;
+				line-height: 44px;
+				color: #fff;
+				cursor: pointer;
+				box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.11);
+				border-top-left-radius: 10px;
+				border-bottom-left-radius: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				&:hover {
+					box-shadow: 0 0 5px rgb(206, 206, 206);
+					.tooltip-text {
+						visibility: unset;
+						opacity: 1;
+					}
+				}
+				img {
+					max-width: 100%;
+				}
+				.tooltip-text {
+					position: absolute;
+					top: 4px;
+					right: 55px;
+					z-index: 9;
+					height: 32px;
+					line-height: 26px;
+					padding: 3px 10px;
+					width: auto;
+					border-radius: 5px;
+					font-size: 11px;
+					color: #fff;
+					text-align: center;
+					white-space: nowrap;
+					cursor: pointer;
+					background-color: black;
+					visibility: hidden;
+					opacity: 0;
+				}
+			}
+		}
+	}
+}

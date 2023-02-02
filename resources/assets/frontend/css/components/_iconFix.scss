@@ -1,0 +1,93 @@
+.icon-fixed {
+    position: fixed;
+    left: 20px;
+    bottom: 10%;
+    z-index: 999;
+    ul {
+        li {
+            list-style-type: none;
+            padding: 7px 0;
+            img {
+                width: 60px;
+                height: 60px;
+            }
+            .ring {
+                position: relative;
+                -webkit-animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
+                animation: quick-alo-circle-img-anim 1s infinite ease-in-out;
+            }
+        }
+    }
+}
+
+@-moz-keyframes quick-alo-circle-img-anim {
+    0% {
+        transform: rotate(0) scale(1) skew(1deg);
+    }
+    10% {
+        -moz-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    20% {
+        -moz-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    30% {
+        -moz-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    40% {
+        -moz-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    50% {
+        -moz-transform: rotate(0) scale(1) skew(1deg);
+    }
+    100% {
+        -moz-transform: rotate(0) scale(1) skew(1deg);
+    }
+}
+
+@-webkit-keyframes quick-alo-circle-img-anim {
+    0% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+    10% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    20% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    30% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    40% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+    100% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+    }
+}
+
+@-o-keyframes quick-alo-circle-img-anim {
+    0% {
+        -o-transform: rotate(0) scale(1) skew(1deg);
+    }
+    10% {
+        -o-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    20% {
+        -o-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    30% {
+        -o-transform: rotate(-25deg) scale(1) skew(1deg);
+    }
+    40% {
+        -o-transform: rotate(25deg) scale(1) skew(1deg);
+    }
+    50% {
+        -o-transform: rotate(0) scale(1) skew(1deg);
+    }
+    100% {
+        -o-transform: rotate(0) scale(1) skew(1deg);
+    }
+}

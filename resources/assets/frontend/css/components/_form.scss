@@ -1,0 +1,30 @@
+input,
+textarea {
+    &::-webkit-input-placeholder {
+        color: rgb(130, 130, 130);
+    }
+    &::-moz-placeholder {
+        color: rgb(130, 130, 130);
+    }
+    &:-ms-input-placeholder {
+        color: rgb(130, 130, 130);
+    }
+    &:-moz-placeholder {
+        color: rgb(130, 130, 130);
+    }
+    &.error_input {
+        border-color: red;
+        &::-webkit-input-placeholder {
+            color: red;
+        }
+        &::-moz-placeholder {
+            color: red;
+        }
+        &:-ms-input-placeholder {
+            color: red;
+        }
+        &:-moz-placeholder {
+            color: red;
+        }
+    }
+}

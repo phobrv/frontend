@@ -1,0 +1,11 @@
+.btnstyle1{
+	border: unset;
+	background-color: $color-primary;
+	padding: 5px 25px;
+	border-radius: 7px;
+	color: white;
+	font-weight: bold;
+	&:hover{
+		background-color:$color-primary-light;
+	}
+}

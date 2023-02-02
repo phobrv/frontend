@@ -1,0 +1,86 @@
+#gmap {
+    position: relative;
+    padding-bottom: 35%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+#agency-page {
+    background-color: #f2f2f2;
+    padding: 45px 0;
+
+    h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    form {
+        .label {
+            font-size: 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+#agencyBox {
+    background-color: #ffffffd1;
+    height: 450px;
+
+    #list {
+        width: 30%;
+        float: left;
+        height: 450px;
+        overflow-y: scroll;
+        font-size: 15px;
+        list-style: 23px;
+
+        .item {
+            cursor: pointer;
+            padding: 10px;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: $color-orange;
+            }
+
+            &:nth-child(2n+1) {
+                background-color: #f4f4f4;
+            }
+
+            &:hover,
+            &.active {
+                background-color: #e6e6e6;
+            }
+
+            .name {
+                font-weight: bold;
+                margin-bottom: 6px;
+            }
+        }
+    }
+
+    #map {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+}
