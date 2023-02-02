@@ -19,11 +19,13 @@ npm run watch
 
 ### Step2: Run composer update
 
-### Step3 Publish brvcore access
+### Step3 Publish access
 
 ```
 php artisan vendor:publish --force
-Choose tag: brvcore.assets
+Choose tag:
+brvcore.assets
+frontend.assets
 ```
 
 ### Step5: Jetstream install and build your NPM dependencies

@@ -83,9 +83,9 @@ class FrontendServiceProvider extends ServiceProvider
          */
 
         // Publishing assets.
-        /*$this->publishes([
-        __DIR__.'/../resources/assets' => public_path('vendor/phont'),
-         */
+        $this->publishes([
+            __DIR__.'/../resources/assets/img' => public_path('img'),
+        ], 'frontend.assets');
 
         // Publishing the translation files.
         /*$this->publishes([
