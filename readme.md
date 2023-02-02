@@ -11,6 +11,10 @@ User.php with the file User.php.exam
 
 ```
 
+```
+copy en.json and vi.json to lang folder
+```
+
 Run
 
 ```
