@@ -9,22 +9,14 @@ webpack.mix.js with the file webpack.mix.js.exam
 package.json with the file package.json.exam
 User.php with the file User.php.exam
 
+
 ```
 
 ```
 copy en.json and vi.json to lang folder
 ```
 
-Run
-
-```
-npm install
-npm run watch
-```
-
-### Step2: Run composer update
-
-### Step3 Publish access
+### Step2 Publish access
 
 ```
 php artisan vendor:publish --force
@@ -33,12 +25,11 @@ brvcore.assets
 frontend.assets
 ```
 
-### Step5: Jetstream install and build your NPM dependencies
+### Step3: Jetstream install and build your NPM dependencies
 
 ```
 php artisan jetstream:install livewire
-npm install
-npm run build
+
 ```
 
 ```
@@ -51,4 +42,23 @@ Add the necessary trait to your User model:
 use Spatie\Permission\Traits\HasRoles;
 
 use HasRoles;
+```
+
+### Step4 elFinder Package for Laravel
+
+```
+php artisan elfinder:publish
+php artisan vendor:publish --provider='Barryvdh\Elfinder\ElfinderServiceProvider' --tag=config
+change elfinder.php with the file exam/elfinder.php
+```
+
+### Step5: Run
+
+```
+composer update
+```
+
+```
+npm install
+npm run build
 ```
