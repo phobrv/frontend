@@ -36,8 +36,6 @@ npm install
 npm run build
 ```
 
-### Step5: spatie/laravel-permission
-
 ```
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 ```
