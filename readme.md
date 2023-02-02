@@ -29,6 +29,7 @@ Choose tag: brvcore.assets
 ### Step5: Jetstream install and build your NPM dependencies
 
 ```
+php artisan jetstream:install livewire
 npm install
 npm run build
 ```
