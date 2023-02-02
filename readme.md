@@ -1,6 +1,6 @@
 # Frontend package note
 
-### Step1: Replace the file
+### Step1: Replace the file from exam folder
 
 ```
 composer.json with the file composer.json.exam
