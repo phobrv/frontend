@@ -85,6 +85,7 @@ class FrontendServiceProvider extends ServiceProvider
         // Publishing assets.
         $this->publishes([
             __DIR__.'/../resources/assets/img' => public_path('img'),
+            __DIR__.'/../resources/assets/svg' => resource_path('views/svg'),
         ], 'frontend.assets');
 
         // Publishing the translation files.
