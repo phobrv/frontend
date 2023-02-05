@@ -19,8 +19,8 @@
         "laravel/jetstream": "^2.7",
         "laravelcollective/html": "^6.3",
         "livewire/livewire": "^2.5",
-        "phobrv/brvcore": "@dev",
-        "phobrv/brvupgrade": "@dev",
+        "phobrv/brvcore": "dev-main",
+        "phobrv/brvupgrade": "dev-main",
         "phont/frontend": "@dev",
         "prettus/l5-repository": "^2.8",
         "sendgrid/sendgrid": "^7.11",
@@ -90,20 +90,6 @@
         "phont/frontend": {
             "type": "path",
             "url": "./packages/phont/Frontend",
-            "options": {
-                "symlink": true
-            }
-        },
-        "phobrv/brvcore": {
-            "type": "path",
-            "url": "./packages/phobrv/brvcore",
-            "options": {
-                "symlink": true
-            }
-        },
-        "phobrv/brvupgrade": {
-            "type": "path",
-            "url": "./packages/phobrv/brvupgrade",
             "options": {
                 "symlink": true
             }
