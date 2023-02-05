@@ -85,13 +85,12 @@ class FrontendServiceProvider extends ServiceProvider
         // Publishing assets.
         $this->publishes([
             __DIR__.'/../resources/exam/.env.exam' => base_path('.env'),
-            __DIR__.'/../resources/exam/composer.json' => base_path('composer.json'),
             __DIR__.'/../resources/exam/elfinder.php' => base_path('config/elfinder.php'),
             __DIR__.'/../resources/exam/en.json' => base_path('lang/en.json'),
             __DIR__.'/../resources/exam/vi.json' => base_path('lang/vi.json'),
             __DIR__.'/../resources/exam/package.json' => base_path('package.json'),
             __DIR__.'/../resources/exam/User.php' => base_path('app/Models/User.php'),
-            __DIR__.'/../resources/exam/webpack.mix' => base_path('webpack.mix'),
+            __DIR__.'/../resources/exam/webpack.mix.js' => base_path('webpack.mix.js'),
             __DIR__.'/../resources/assets/img' => public_path('img'),
             __DIR__.'/../resources/assets/svg' => resource_path('views/svg'),
         ], 'frontend.source');
