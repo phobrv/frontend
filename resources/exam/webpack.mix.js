@@ -12,9 +12,9 @@ const path = require("path");
  |
  */
 mix.sass(
-    "packages/phont/frontend/resources/assets/frontend/css/main.scss",
-    "public/css/"
-)
+        "packages/phont/frontend/resources/assets/frontend/css/main.scss",
+        "public/css/"
+    )
     // .sourceMaps(true, "source-map")
     .options({
         processCssUrls: false,
@@ -37,13 +37,15 @@ mix.combine(
     processCssUrls: false,
 });
 
-// mix.styles([
-//     'packages/phobrv/brvcore/resources/assets/adminlte3/plugins/fontawesome-free/css/all.css',
-//     'packages/phobrv/brvcore/resources/assets/css/admin_cus.css',
-//     'packages/phobrv/brvcore/resources/assets/adminlte3/css/adminlte.css',
-//     'packages/phobrv/brvcore/resources/assets/adminlte3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css',
-//     'packages/phobrv/brvcore/resources/assets/adminlte3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css',
-//     'packages/phobrv/brvcore/resources/assets/adminlte3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css',
-//     'packages/phobrv/brvcore/resources/assets/adminlte3/plugins/select2/css/select2.min.css',
-//     'packages/phobrv/brvcore/resources/assets/adminlte3/plugins/select2/css/select2.min.css',
-// ], 'public/css/admin.css').version();
+mix.styles([
+    'public/vendor/phobrv/adminlte3/plugins/fontawesome-free/css/all.css',
+    'public/vendor/phobrv/css/admin_cus.css',
+    'public/vendor/phobrv/adminlte3/css/adminlte.css',
+    'public/vendor/phobrv/adminlte3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css',
+    'public/vendor/phobrv/adminlte3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css',
+    'public/vendor/phobrv/adminlte3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css',
+    'public/vendor/phobrv/adminlte3/plugins/select2/css/select2.min.css',
+    'public/vendor/phobrv/adminlte3/plugins/select2/css/select2.min.css',
+], 'public/css/admin.css').options({
+    processCssUrls: false,
+}).version();

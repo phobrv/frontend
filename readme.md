@@ -27,7 +27,6 @@ php artisan elfinder:publish
 php artisan vendor:publish --force --tag=frontend.source
 php artisan vendor:publish --force --tag=brvcore.assets
 
-frontend.source
 ```
 
 ### Step5: Run
