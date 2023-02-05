@@ -90,8 +90,8 @@ class FrontendServiceProvider extends ServiceProvider
             __DIR__.'/../resources/exam/vi.json' => base_path('lang/vi.json'),
             __DIR__.'/../resources/exam/package.json' => base_path('package.json'),
             __DIR__.'/../resources/exam/User.php' => base_path('app/Models/User.php'),
-            __DIR__.'/../resources/exam/webpack.mix.js' => base_path('routes/web.php'),
-            __DIR__.'/../resources/exam/web.php' => base_path('webpack.mix.js'),
+            __DIR__.'/../resources/exam/webpack.mix.js' => base_path('webpack.mix.js'),
+            __DIR__.'/../resources/exam/web.php' => base_path('routes/web.php'),
             __DIR__.'/../resources/assets/img' => public_path('img'),
             __DIR__.'/../resources/assets/svg' => resource_path('views/svg'),
         ], 'frontend.source');

@@ -24,9 +24,9 @@ php artisan elfinder:publish
 ### Step4 Publish access
 
 ```
-php artisan vendor:publish --force
-Choose tag:
-brvcore.assets
+php artisan vendor:publish --force --tag=frontend.source
+php artisan vendor:publish --force --tag=brvcore.assets
+
 frontend.source
 ```
 
