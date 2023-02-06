@@ -94,6 +94,9 @@ class FrontendServiceProvider extends ServiceProvider
             __DIR__.'/../resources/exam/web.php' => base_path('routes/web.php'),
             __DIR__.'/../resources/assets/img' => public_path('img'),
             __DIR__.'/../resources/assets/svg' => resource_path('views/svg'),
+            __DIR__.'/../resources/exam/AccountSeeder.php' => base_path('database/seeders/AccountSeeder.php'),
+            __DIR__.'/../resources/exam/DatabaseSeeder.php' => base_path('database/seeders/DatabaseSeeder.php'),
+
         ], 'frontend.source');
 
         // Publishing the translation files.
