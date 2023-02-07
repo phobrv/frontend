@@ -22,6 +22,8 @@ class HandleDataPage
 
     protected $handleDataMenuPage;
 
+    protected $termRepository;
+
     public function __construct(
         CommonServices $commonServices,
         HandleDataMenuPage $handleDataMenuPage,
@@ -175,16 +177,7 @@ class HandleDataPage
 
         if ($page) {
             $data['meta'] = $this->postService->getMeta($page->postMetas, false);
-
-            $prefix_layout = $data['meta']['layout'] ?? 'layout2';
-
-            $full = 'phont::frontend.page.index';
-            $short = 'phont::frontend.page.posts.'.$prefix_layout.'_short';
-            if (isset($data['page'])) {
-                $data['view_page'] = $short;
-            } else {
-                $data['view_page'] = $full;
-            }
+            $data['view_page'] = 'phont::frontend.page.home.layout1';
         }
 
         return $data;
