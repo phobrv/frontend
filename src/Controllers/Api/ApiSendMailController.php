@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\Controllers\Api;
+namespace Phobrv\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

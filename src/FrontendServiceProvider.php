@@ -1,12 +1,12 @@
 <?php
 
-namespace Phont\Frontend;
+namespace Phobrv\Frontend;
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Phont\Frontend\Middleware\AutoCreateImageResize;
-use Phont\Frontend\Middleware\Redirect301Middleware;
+use Phobrv\Frontend\Middleware\AutoCreateImageResize;
+use Phobrv\Frontend\Middleware\Redirect301Middleware;
 
 class FrontendServiceProvider extends ServiceProvider
 {
@@ -19,11 +19,11 @@ class FrontendServiceProvider extends ServiceProvider
     {
         $kernel->pushMiddleware(Redirect301Middleware::class);
         $kernel->pushMiddleware(AutoCreateImageResize::class);
-        Validator::extend('recaptcha', 'Phont\Frontend\Validators\ReCaptcha@validate');
+        Validator::extend('recaptcha', 'Phobrv\Frontend\Validators\ReCaptcha@validate');
 
         view()->composer(
             ['phont::*'],
-            'Phont\Frontend\ViewComposers\FrontEndComposer'
+            'Phobrv\Frontend\ViewComposers\FrontEndComposer'
         );
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'phont');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'phont');
@@ -46,7 +46,7 @@ class FrontendServiceProvider extends ServiceProvider
     {
         // $this->app->singleton(Redirect301Middleware::class);
 
-        $this->app->singleton(\Phont\Frontend\ViewComposers\FrontEndComposer::class);
+        $this->app->singleton(\Phobrv\Frontend\ViewComposers\FrontEndComposer::class);
         $this->mergeConfigFrom(__DIR__.'/../config/frontend.php', 'frontend');
 
         // Register the service the package provides.

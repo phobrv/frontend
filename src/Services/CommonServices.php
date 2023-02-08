@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\Services;
+namespace Phobrv\Frontend\Services;
 
 use KubAT\PhpSimple\HtmlDomParser;
 

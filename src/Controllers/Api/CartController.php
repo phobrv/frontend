@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\Controllers\Api;
+namespace Phobrv\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Cart;
@@ -13,8 +13,8 @@ use Phobrv\BrvCore\Services\HandleMenuServices;
 use Phobrv\BrvCore\Services\NotificationService;
 use Phobrv\BrvCore\Services\OptionServices;
 use Phobrv\BrvCore\Services\PostServices;
-use Phont\Frontend\Services\CartServices;
-use Phont\Frontend\Services\NganLuongService;
+use Phobrv\Frontend\Services\CartServices;
+use Phobrv\Frontend\Services\NganLuongService;
 
 class CartController extends Controller
 {

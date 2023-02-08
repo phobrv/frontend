@@ -1,12 +1,12 @@
 <?php
 
-namespace Phont\Frontend\Controllers\Api;
+namespace Phobrv\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Phobrv\BrvCore\Repositories\PostRepository;
 use Phobrv\BrvCore\Services\PostServices;
-use Phont\Frontend\Services\RatingService;
+use Phobrv\Frontend\Services\RatingService;
 
 class RatingController extends Controller
 {
@@ -19,8 +19,8 @@ class RatingController extends Controller
     public function __construct(
         RatingService $ratingService,
         PostRepository $postRepository,
-        PostServices $postService)
-    {
+        PostServices $postService
+    ) {
         $this->postService = $postService;
         $this->postRepository = $postRepository;
         $this->ratingService = $ratingService;

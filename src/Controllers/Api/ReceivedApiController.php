@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\Controllers\Api;
+namespace Phobrv\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Phobrv\BrvCore\Repositories\ReceiveDataRepository;
 use Phobrv\BrvCore\Repositories\UserRepository;
 use Phobrv\BrvCore\Services\NotificationService;
 use Phobrv\BrvCore\Services\OptionServices;
-use Phont\Frontend\Services\ReceivedDataServices;
+use Phobrv\Frontend\Services\ReceivedDataServices;
 
 class ReceivedApiController extends Controller
 {

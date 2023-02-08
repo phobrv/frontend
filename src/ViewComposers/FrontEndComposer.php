@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\ViewComposers;
+namespace Phobrv\Frontend\ViewComposers;
 
 use Illuminate\View\View;
 

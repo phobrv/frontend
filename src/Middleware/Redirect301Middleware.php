@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\Middleware;
+namespace Phobrv\Frontend\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

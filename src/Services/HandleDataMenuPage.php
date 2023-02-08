@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\Services;
+namespace Phobrv\Frontend\Services;
 
 use Phobrv\BrvCore\Repositories\PostMetaRepository;
 use Phobrv\BrvCore\Repositories\PostRepository;

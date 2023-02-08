@@ -1,13 +1,13 @@
 <?php
 
-namespace Phont\Frontend\Controllers;
+namespace Phobrv\Frontend\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Phobrv\BrvCore\Repositories\OptionRepository;
 use Phobrv\BrvCore\Services\HandleMenuServices;
 use Phobrv\BrvCore\Services\OptionServices;
-use Phont\Frontend\Services\HandleDataPage;
+use Phobrv\Frontend\Services\HandleDataPage;
 
 class HomeController extends Controller
 {

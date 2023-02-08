@@ -1,6 +1,6 @@
 <?php
 
-namespace Phont\Frontend\Controllers\Api;
+namespace Phobrv\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -123,8 +123,8 @@ class CommentAPIController extends Controller
         $out .= '<b class="fn">'.$c1->name.'</b>';
         if ($isNoReply == null) {
             $out .= '<span class="reply">'.
-            '<i class="fa fa-reply" aria-hidden="true"></i> '.
-            '<a rel="nofollow" class="comment-reply-link" href="#comment-'.$c1->id.'" data-commentid="'.$c1->id.'" data-postid="'.$c1->post_id.'" >Trả lời</a></span>';
+                '<i class="fa fa-reply" aria-hidden="true"></i> '.
+                '<a rel="nofollow" class="comment-reply-link" href="#comment-'.$c1->id.'" data-commentid="'.$c1->id.'" data-postid="'.$c1->post_id.'" >Trả lời</a></span>';
         }
 
         $out .= '</div>';

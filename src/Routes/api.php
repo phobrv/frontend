@@ -2,14 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::post('/api/send-mail', 'Phont\Frontend\Controllers\Api\ApiSendMailController@SendMail')->name('api.sentMail');
+Route::post('/api/send-mail', 'Phobrv\Frontend\Controllers\Api\ApiSendMailController@SendMail')->name('api.sentMail');
 
-Route::middleware('web')->namespace('Phont\Frontend\Controllers\Api')->group(function () {
+Route::middleware('web')->namespace('Phobrv\Frontend\Controllers\Api')->group(function () {
     Route::get('/checkout', 'CartController@checkout')->name('checkout');
     Route::get('/cancel/{id}', 'CartController@cancel')->name('cancel');
     Route::get('/success/{id}', 'CartController@success')->name('success');
 });
-Route::middleware('web')->prefix('api')->namespace('Phont\Frontend\Controllers\Api')->group(function () {
+Route::middleware('web')->prefix('api')->namespace('Phobrv\Frontend\Controllers\Api')->group(function () {
     //Checkout
     Route::post('/placeOrder', 'CartController@placeOrder')->name('api.placeOrder');
     Route::post('/addProduct', 'CartController@addProduct')->name('api.addProduct');
