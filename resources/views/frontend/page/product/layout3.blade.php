@@ -1,13 +1,13 @@
-@extends('phont::frontend.layout.1col')
+@extends('phobrv::frontend.layout.1col')
 @section('content')
-    @include('phont::frontend.layout.breadcrumb')
+    @include('phobrv::frontend.layout.breadcrumb')
     <div class="container">
         <div id="product_page3" class="mt-3 style3">
             @if (isset($data['post']))
                 <div class="top mb-3">
                     <div class="row">
                         <div class="col-md-5">
-                            @include('phont::frontend.page.product.coms.slideWithThumb')
+                            @include('phobrv::frontend.page.product.coms.slideWithThumb')
                         </div>
                         <div class="col-md-7">
                             <h1 class="font30">{{ $data['post']->title ?? '' }}</h1>
@@ -142,8 +142,8 @@
 
                     </div>
                     <div class="col-md-3">
-                        @include('phont::frontend.page.product.coms.boxPromo')
-                        @include('phont::frontend.page.product.coms.productHot')
+                        @include('phobrv::frontend.page.product.coms.boxPromo')
+                        @include('phobrv::frontend.page.product.coms.productHot')
                     </div>
                 </div>
             @endif
@@ -151,10 +151,10 @@
         <div id="product-concern" class="mt-3">
             <div class="title">Sản phẩm liên quan</div>
             <div class="inner">
-                @include('phont::frontend.page.product.coms.productConcernSlide', ['products' => $data['concern']])
+                @include('phobrv::frontend.page.product.coms.productConcernSlide', ['products' => $data['concern']])
             </div>
         </div>
-        @include('phont::frontend.components.boxCommentFB')
+        @include('phobrv::frontend.components.boxCommentFB')
     </div>
 @endsection
 @section('script')

@@ -1,4 +1,4 @@
-@extends("phont::frontend.layout.2col")
+@extends("phobrv::frontend.layout.2col")
 @section('content')
 <div class="album_page">
 	<h2>{{ $data['post']->title ?? '' }}</h2>
@@ -18,7 +18,7 @@
 		</div>
 	</div>
 </div>
-@include("phont::frontend.components.boxCommentFB")
+@include("phobrv::frontend.components.boxCommentFB")
 @endsection
 
 @section('script')

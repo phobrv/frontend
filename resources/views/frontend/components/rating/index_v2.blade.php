@@ -14,7 +14,7 @@
                     <div class="comment">
                         {{ $comment->content ?? '' }}
                     </div>
-                    @include('phont::frontend.components.rating.ratingShow', ['rating' => $content->rating ?? 5])
+                    @include('phobrv::frontend.components.rating.ratingShow', ['rating' => $content->rating ?? 5])
                 </div>
             </li>
         @endforeach
@@ -29,7 +29,7 @@
             <ul class="star-rating mb-3">
                 <li class="me-3">Đánh giá:</li>
                 <li>
-                    @include('phont::frontend.components.rating.starInput')
+                    @include('phobrv::frontend.components.rating.starInput')
                 </li>
             </ul>
             <div class="form-group mb-2">
@@ -54,12 +54,12 @@
                     <div class="number mb-4">
                         {{ $data['medium'] ?? 5 }}
                     </div>
-                    @include('phont::frontend.components.rating.ratingShow', ['rating' => 5, 'disabled' => 'disabled'])
+                    @include('phobrv::frontend.components.rating.ratingShow', ['rating' => 5, 'disabled' => 'disabled'])
                     <div class="total">({{ $data['number'] ?? 1 }} đánh giá)</div>
                 </div>
             </div>
             <div class="col-md-8 ">
-                @include('phont::frontend.components.rating.reportDetail', ['data' => $data])
+                @include('phobrv::frontend.components.rating.reportDetail', ['data' => $data])
             </div>
         </div>
     </div>

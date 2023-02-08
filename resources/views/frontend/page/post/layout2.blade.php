@@ -1,19 +1,19 @@
-@extends('phont::frontend.layout.1col')
+@extends('phobrv::frontend.layout.1col')
 @section('content')
-   @include('phont::frontend.layout.breadcrumb')
+   @include('phobrv::frontend.layout.breadcrumb')
    <div class="container">
       <div class="row mt-3">
          <div class="col-md-8">
             <div id="post">
                <h1>{{ $data['post']->title ?? '' }}</h1>
-               @include('phont::frontend.components.ratingSimple.ratingBox')
-               @include('phont::frontend.page.post.coms.mainContent')
+               @include('phobrv::frontend.components.ratingSimple.ratingBox')
+               @include('phobrv::frontend.page.post.coms.mainContent')
                {!! $data['post']->content !!}
             </div>
-            @include('phont::frontend.page.post.coms.boxTags')
-            @include('phont::frontend.components.boxCommentFB')
-            @include('phont::frontend.components.boxComment')
-            @include('phont::frontend.page.post.coms.boxConcern')
+            @include('phobrv::frontend.page.post.coms.boxTags')
+            @include('phobrv::frontend.components.boxCommentFB')
+            @include('phobrv::frontend.components.boxComment')
+            @include('phobrv::frontend.page.post.coms.boxConcern')
          </div>
          <div id="sidebar" class="col-md-4 mb-3">
             <div id="submenuTop"></div>

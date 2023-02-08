@@ -95,7 +95,7 @@ class CartController extends Controller
         $data['meta'] = $this->receiveDataRepository->getMeta($data['receiveDataMetas']);
         $data['cart'] = json_decode($data['meta']['cart']);
 
-        return view('phont::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
+        return view('phobrv::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
     }
 
     public function cancel(Request $request, $order_id)
@@ -106,7 +106,7 @@ class CartController extends Controller
             $data['meta'] = $this->receiveDataRepository->getMeta($data['receiveDataMetas']);
             $data['cart'] = json_decode($data['meta']['cart']);
 
-            return view('phont::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
+            return view('phobrv::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
         } else {
             return redirect()->route('home');
         }
@@ -117,7 +117,7 @@ class CartController extends Controller
         $data = $this->cartService->getCartContent([]);
         $data['meta'] = $this->cartService->genMetaData();
 
-        return view('phont::frontend.page.checkout.index', ['data' => $data, 'configs' => $this->configs]);
+        return view('phobrv::frontend.page.checkout.index', ['data' => $data, 'configs' => $this->configs]);
     }
 
     public function addProduct(Request $request)
@@ -142,7 +142,7 @@ class CartController extends Controller
                 );
             }
             $data = $this->cartService->getCartContent([]);
-            $modalCart = view('phont::frontend.page.checkout.modalCart', ['data' => $data])->render();
+            $modalCart = view('phobrv::frontend.page.checkout.modalCart', ['data' => $data])->render();
 
             return response()->json(['count' => Cart::count(), 'modalCart' => $modalCart]);
         } catch (Exception $e) {
@@ -212,7 +212,7 @@ class CartController extends Controller
             Cart::destroy();
             $data['meta'] = $this->cartService->genMetaData();
             // dd($data);
-            return view('phont::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
+            return view('phobrv::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
         } else {
             return redirect()->route('home');
         }

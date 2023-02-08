@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    @include("phont::frontend.layout.meta")
+    @include("phobrv::frontend.layout.meta")
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{$configs['favicon'] ?? ''}}">
     <link rel="canonical" href="{{$fullUrlNoQuery}}" />
@@ -10,7 +10,7 @@
     <link rel="stylesheet  preload" type="text/css" href="{{asset('/css/customize.css')}}">
     @endif
     @yield('head')
-    @include("phont::frontend.layout.schema")
+    @include("phobrv::frontend.layout.schema")
     {!!$configs['code_head'] ?? '' !!}
 </head>
 @php
@@ -36,8 +36,8 @@
                     </a>
                 </div>
                 <div class="col-md-10">
-                    @include("phont::frontend.layout.menu")
-                    {{-- @include("phont::frontend.components.googleTransBtn") --}}
+                    @include("phobrv::frontend.layout.menu")
+                    {{-- @include("phobrv::frontend.components.googleTransBtn") --}}
                 </div>
             </div>
         </div>

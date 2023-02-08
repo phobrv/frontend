@@ -7,13 +7,13 @@
 <div id="modalCartArea"></div>
 
 {!! $configs['code_body'] ?? '' !!}
-@include('phont::frontend.components.alertBoxSimple')
-@include('phont::frontend.components.scrolltop')
-@include('phont::frontend.components.googleAnalyticLazyload')
-@include('phont::frontend.components.modalSuccess')
+@include('phobrv::frontend.components.alertBoxSimple')
+@include('phobrv::frontend.components.scrolltop')
+@include('phobrv::frontend.components.googleAnalyticLazyload')
+@include('phobrv::frontend.components.modalSuccess')
 <script rel="preload" type="text/javascript" src="{{ asset('/js/frontend.js') }}"></script>
 @yield('script')
-{{-- @include("phont::frontend.components.iconFix") --}}
+{{-- @include("phobrv::frontend.components.iconFix") --}}
 <script type="text/javascript">
     if (typeof(App) == 'undefined') {
         const App = {}

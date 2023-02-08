@@ -41,12 +41,12 @@ class CartServices
 
     public function genCartTable($data)
     {
-        return view('phont::frontend.page.checkout.table', ['data' => $data])->render();
+        return view('phobrv::frontend.page.checkout.table', ['data' => $data])->render();
     }
 
     public function genCartTableReport($data)
     {
-        return view('phont::frontend.page.checkout.table_report', ['data' => $data])->render();
+        return view('phobrv::frontend.page.checkout.table_report', ['data' => $data])->render();
     }
 
     public function getOrderDesc($cart)

@@ -1,4 +1,4 @@
-@extends("phont::frontend.layout.2col")
+@extends("phobrv::frontend.layout.2col")
 @section('content')
 <div id="category_page">
 	@isset($data['posts'])
@@ -29,5 +29,5 @@
 	</div>
 	@endif
 </div>
-@include("phont::frontend.components.box_comment_fb")
+@include("phobrv::frontend.components.box_comment_fb")
 @endsection

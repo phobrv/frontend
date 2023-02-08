@@ -59,7 +59,7 @@ class RatingController extends Controller
         $arrayMeta['rating'] = round($total / $number, 2);
         $this->postRepository->insertMeta($post, $arrayMeta);
 
-        return view('phont::frontend.components.ratingShow', ['rating' => round($total / $number, 2), 'total' => $number, 'confirm' => '1'])->render();
+        return view('phobrv::frontend.components.ratingShow', ['rating' => round($total / $number, 2), 'total' => $number, 'confirm' => '1'])->render();
     }
 
     public function ratingv2(Request $request)
@@ -82,6 +82,6 @@ class RatingController extends Controller
     {
         $report = $this->ratingService->reportRatingV2($id);
 
-        return view('phont::frontend.components.rating.index', ['data' => $report])->render();
+        return view('phobrv::frontend.components.rating.index', ['data' => $report])->render();
     }
 }

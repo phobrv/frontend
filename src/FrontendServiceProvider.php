@@ -22,11 +22,11 @@ class FrontendServiceProvider extends ServiceProvider
         Validator::extend('recaptcha', 'Phobrv\Frontend\Validators\ReCaptcha@validate');
 
         view()->composer(
-            ['phont::*'],
+            ['phobrv::*'],
             'Phobrv\Frontend\ViewComposers\FrontEndComposer'
         );
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'phont');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'phont');
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'phobrv');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'phobrv');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/Routes/api.php');
         $this->loadRoutesFrom(__DIR__.'/Routes/routes.php');
@@ -78,9 +78,9 @@ class FrontendServiceProvider extends ServiceProvider
         // ], 'frontend.config');
 
         // Publishing the views.
-        /*$this->publishes([
-        __DIR__.'/../resources/views' => base_path('resources/views/vendor/phont'),
-         */
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/phobrv'),
+        ], 'frontend.view');
 
         // Publishing assets.
         $this->publishes([
@@ -102,7 +102,7 @@ class FrontendServiceProvider extends ServiceProvider
 
         // Publishing the translation files.
         /*$this->publishes([
-        __DIR__.'/../resources/lang' => resource_path('lang/vendor/phont'),
+        __DIR__.'/../resources/lang' => resource_path('lang/vendor/phobrv'),
          */
 
         // Registering package commands.

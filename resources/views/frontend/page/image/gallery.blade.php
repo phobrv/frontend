@@ -1,4 +1,4 @@
-@extends("phont::frontend.layout.2col")
+@extends("phobrv::frontend.layout.2col")
 @section('content')
 <div class="gallery_page">
 	<div class="row">
@@ -27,7 +27,7 @@
 	@endif
 
 </div>
-@include("phont::frontend.components.boxCommentFB")
+@include("phobrv::frontend.components.boxCommentFB")
 @endsection
 
 @section('script')

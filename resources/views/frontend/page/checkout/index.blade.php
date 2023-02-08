@@ -1,4 +1,4 @@
-@extends("phont::frontend.layout.1col")
+@extends("phobrv::frontend.layout.1col")
 @section('content')
 <div id="checkout-page" class="mt-3 mb-3">
 
@@ -16,7 +16,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<div id="cart_table">
-					@include('phont::frontend.page.checkout.table')
+					@include('phobrv::frontend.page.checkout.table')
 				</div>
 			</div>
 			<div class="col-md-5">

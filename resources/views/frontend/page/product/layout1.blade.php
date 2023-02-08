@@ -1,10 +1,10 @@
-@extends('phont::frontend.layout.2col')
+@extends('phobrv::frontend.layout.2col')
 @section('content')
     <div id="product_page1">
         @if (isset($data['post']))
             <div class="row">
                 <div class="col-md-6">
-                    @include('phont::frontend.page.product.coms.slideWithThumb')
+                    @include('phobrv::frontend.page.product.coms.slideWithThumb')
                 </div>
                 <div class="col-md-6">
                     <h1>{{ $data['post']->title ?? '' }}</h1>
@@ -92,7 +92,7 @@
             </div>
         @endif
     </div>
-    @include('phont::frontend.components.boxCommentFB')
+    @include('phobrv::frontend.components.boxCommentFB')
 @endsection
 @section('script')
     <script type="text/javascript">

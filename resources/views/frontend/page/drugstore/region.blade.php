@@ -1,4 +1,4 @@
-@extends("phont::frontend.layout.2col")
+@extends("phobrv::frontend.layout.2col")
 @section('content')
 <h2 class="font20 text-main text-uppercase font-bold">
 	@if(isset($data['post']->title)) {{$data['post']->title}} @endif
@@ -19,5 +19,5 @@
 	</div>
 	@endforeach
 </div>
-@include("phont::frontend.components.boxCommentFB")
+@include("phobrv::frontend.components.boxCommentFB")
 @endsection

@@ -1,4 +1,4 @@
-@extends('phont::frontend.layout.1col')
+@extends('phobrv::frontend.layout.1col')
 @section('content')
     <div id="product-page">
         <div class="container">
@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div style="position: relative">
-                                @include('phont::frontend.page.product.coms.slideProduct')
+                                @include('phobrv::frontend.page.product.coms.slideProduct')
                             </div>
 
                         </div>
@@ -38,7 +38,7 @@
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
                         </div>
                     </div>
-                    @include('phont::frontend.components.boxCommentFB')
+                    @include('phobrv::frontend.components.boxCommentFB')
 
                 </div>
                 <div class="col-md-3">

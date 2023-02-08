@@ -1,4 +1,4 @@
-@extends('phont::frontend.layout.1col')
+@extends('phobrv::frontend.layout.1col')
 @section('content')
 
 @endsection

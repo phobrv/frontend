@@ -1,4 +1,4 @@
-@extends("phont::frontend.layout.2col")
+@extends("phobrv::frontend.layout.2col")
 @section('content')
 <h2 class="text-orange h2_title">
 
@@ -19,5 +19,5 @@
 		</div>
 	</div>
 </div>
-@include("phont::frontend.components.boxCommentFB")
+@include("phobrv::frontend.components.boxCommentFB")
 @endsection

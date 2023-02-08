@@ -1,4 +1,4 @@
-@extends("phont::frontend.layout.1col")
+@extends("phobrv::frontend.layout.1col")
 @section('content')
 <div id="checkout-success" class="mt-3 mb-5">
 	<div class="container">

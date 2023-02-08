@@ -2,7 +2,7 @@
 	@isset($data['meta']['category_term_paginate_source'])
 	@foreach($data['meta']['category_term_paginate_source'] as $p)
 	<div class="col-md-4">
-		@include('phont::frontend.page.category.coms.boxPost3',['p'=>$p])
+		@include('phobrv::frontend.page.category.coms.boxPost3',['p'=>$p])
 	</div>
 	@endforeach
 	@endif

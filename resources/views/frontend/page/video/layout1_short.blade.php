@@ -2,7 +2,7 @@
 	@isset($data['meta']['video_term_paginate_source'])
 	@foreach($data['meta']['video_term_paginate_source'] as $p)
 	<div class="col-xs-6 col-md-4">
-		@include("phont::frontend.page.video.coms.videoItem1",['p'=>$p])
+		@include("phobrv::frontend.page.video.coms.videoItem1",['p'=>$p])
 	</div>
 	@endforeach
 	@endif

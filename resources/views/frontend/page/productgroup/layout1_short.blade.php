@@ -3,7 +3,7 @@
         <div class="row g-5">
             @foreach ($data['items'] as $p)
                 <div class="col-6 col-lg-4">
-                    @include('phont::frontend.page.productgroup.coms.boxProduct3', ['p' => $p])
+                    @include('phobrv::frontend.page.productgroup.coms.boxProduct3', ['p' => $p])
                 </div>
             @endforeach
         </div>
@@ -12,7 +12,7 @@
         <div class="row g-5">
             @foreach ($data['items'] as $p)
                 <div class="col-12">
-                    @include('phont::frontend.page.productgroup.coms.boxProduct4', ['p' => $p])
+                    @include('phobrv::frontend.page.productgroup.coms.boxProduct4', ['p' => $p])
                 </div>
             @endforeach
         </div>
