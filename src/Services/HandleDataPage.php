@@ -99,9 +99,6 @@ class HandleDataPage
             case 'drugstore':
                 $data = $this->handleDataDrugstorePage($data);
                 break;
-            case 'recruitment':
-                $data = $this->handleDataRecruitmentPage($data);
-                break;
         }
 
         return $data;
@@ -109,8 +106,6 @@ class HandleDataPage
 
     public function handleDataProductPage($data)
     {
-        $data['view_page'] = 'phont::frontend.page.product.layout3';
-
         $data['gallery'] = [];
         if (! empty($data['meta']['option_number'])) {
             for ($i = 0; $i < $data['meta']['option_number']; $i++) {
@@ -194,7 +189,7 @@ class HandleDataPage
             $data['meta']['category_term_paginate_source'] = $data['term']->posts()->orderBy('created_at', 'desc')->paginate(10);
             $data['meta']['meta_title'] = 'Chủ đề: '.$data['term']->name;
             $data['meta']['meta_description'] = 'Chủ đề: '.$data['term']->name;
-            $data['view_page'] = 'phont::frontend.page.category1';
+            $data['view_page'] = 'phont::frontend.page.category.layout1';
         }
 
         return $data;
@@ -223,14 +218,6 @@ class HandleDataPage
                 }
             }
         }
-
-        return $data;
-    }
-
-    public function handleDataRecruitmentPage($data)
-    {
-        $data['post']['meta'] = $this->postService->getMeta($data['post']->postMetas);
-        $data['view_page'] = 'phont::frontend.page.recruitment.detail';
 
         return $data;
     }
