@@ -1,8 +1,8 @@
 @extends('phont::frontend.layout.2col')
 @section('content')
     <div id="products-page">
-        @include('phont::frontend.page.products.coms.slideBanner', ['data' => $data])
-        @include('phont::frontend.page.products.coms.filter')
+        @include('phont::frontend.page.productgroup.coms.slideBanner', ['data' => $data])
+        @include('phont::frontend.page.productgroup.coms.filter')
         <div id="product_list">
 
         </div>
