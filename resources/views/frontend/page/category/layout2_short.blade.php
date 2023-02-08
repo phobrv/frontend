@@ -1,6 +1,6 @@
 @isset($data['meta']['category_term_paginate_source'])
 @foreach($data['meta']['category_term_paginate_source'] as $p)
-@include('phont::frontend.page.posts.coms.boxPost2',['p'=>$p])
+@include('phont::frontend.page.category.coms.boxPost2',['p'=>$p])
 
 @endforeach
 @endif
