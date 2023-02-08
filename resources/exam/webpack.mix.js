@@ -12,26 +12,26 @@ const path = require("path");
  |
  */
 mix
-  .sass(
-    "packages/phobrv/frontend/resources/assets/frontend/css/main.scss",
-    "public/css/"
-  )
-  //   .sourceMaps(true, "source-map")
-  .options({
-    processCssUrls: false,
-  });
+    .sass(
+        "resources/frontend/css/main.scss",
+        "public/css/"
+    )
+    //   .sourceMaps(true, "source-map")
+    .options({
+        processCssUrls: false,
+    });
 
 // mix.combine(
 //     [
-//         "packages/phobrv/frontend/resources/assets/frontend/js/jquery-3.6.0.min.js",
-//         "packages/phobrv/frontend/resources/assets/frontend/js/lazysizes.min.js",
-//         "packages/phobrv/frontend/resources/assets/bootstrap5/js/bootstrap.bundle.min.js",
-//         "packages/phobrv/frontend/resources/assets/frontend/js/jquery.barrating.min.js",
-//         "packages/phobrv/frontend/resources/assets/frontend/js/smooth-scroll.polyfills.min.js",
-//         "packages/phobrv/frontend/resources/assets/magnific/jquery.magnific-popup.js",
-//         "packages/phobrv/frontend/resources/assets/swiper/swiper-bundle.min.js",
-//         "packages/phobrv/frontend/resources/assets/frontend/js/wow.min.js",
-//         "packages/phobrv/frontend/resources/assets/frontend/js/frontend.js",
+//         "resources/frontend/js/jquery-3.6.0.min.js",
+//         "resources/frontend/js/lazysizes.min.js",
+//         "resources/bootstrap5/js/bootstrap.bundle.min.js",
+//         "resources/frontend/js/jquery.barrating.min.js",
+//         "resources/frontend/js/smooth-scroll.polyfills.min.js",
+//         "resources/magnific/jquery.magnific-popup.js",
+//         "resources/swiper/swiper-bundle.min.js",
+//         "resources/frontend/js/wow.min.js",
+//         "resources/frontend/js/frontend.js",
 //     ],
 //     "public/js/frontend.js"
 // ).options({
