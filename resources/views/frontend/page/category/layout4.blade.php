@@ -3,9 +3,9 @@
     @include('phont::frontend.layout.breadcrumb')
     
     <div class="container">
-		@include('phont::frontend.page.posts.coms.slideBanner')
+		@include('phont::frontend.page.category.coms.slideBanner')
         <div id="cagegory_page4" class="category_main mt-3">
-            @include('phont::frontend.page.posts.layout4_short')
+            @include('phont::frontend.page.category.layout4_short')
         </div>
 		@include('phont::frontend.components.boxCommentFB')
     </div>

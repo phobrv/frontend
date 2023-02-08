@@ -4,7 +4,7 @@
 	<div id="cagegory_page3" class="category_main mt-3">
 		<h1>{{$data['post']->title ?? ''}}</h1>
 
-		@include("phont::frontend.page.posts.layout3_short")
+		@include("phont::frontend.page.category.layout3_short")
 	</div>
 </div>
 @include("phont::frontend.components.boxCommentFB")

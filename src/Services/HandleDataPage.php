@@ -142,7 +142,6 @@ class HandleDataPage
             $data['meta']['meta_thumb'] = $data['post']->thumb;
         }
         $data['tags'] = $data['post']->terms()->where('taxonomy', 'tag')->get();
-        $data['view_page'] = 'phont::frontend.page.post.index';
 
         return $data;
     }
@@ -151,7 +150,6 @@ class HandleDataPage
     {
         $data['concern'] = $this->postRepository->getConcern($data['post'])->take(6);
         $data['meta']['meta_thumb'] = $data['post']->thumb;
-        $data['view_page'] = 'phont::frontend.page.video.detail';
 
         return $data;
     }
@@ -177,7 +175,7 @@ class HandleDataPage
 
         if ($page) {
             $data['meta'] = $this->postService->getMeta($page->postMetas, false);
-            $data['view_page'] = 'phont::frontend.page.home.layout1';
+            $data['view_page'] = $this->handleViewPage($data);
         }
 
         return $data;
@@ -235,5 +233,20 @@ class HandleDataPage
         $data['view_page'] = 'phont::frontend.page.recruitment.detail';
 
         return $data;
+    }
+
+    public function handleViewPage($data)
+    {
+        $folder = 'phont::frontend.page.'.($data['post']->type == 'menu_item' ? $data['post']->subtype : $data['post']->type);
+        $prefix_layout = $data['meta']['layout'] ?? 'layout1';
+        $full = $folder.'.'.$prefix_layout;
+        $short = $folder.'.'.$prefix_layout.'_short';
+        if (isset($data['page'])) {
+            $view_page = $short;
+        } else {
+            $view_page = $full;
+        }
+
+        return $view_page;
     }
 }

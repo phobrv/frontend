@@ -43,7 +43,9 @@ class HomeController extends Controller
                 $data = $this->handleDataPage->handlePostPage($request, $slug);
                 break;
         }
-        if ($data['post'] && ! empty($data['view_page'])) {
+        if ($data['post']) {
+            $data['view_page'] = $data['view_page'] ?? $this->handleDataPage->handleViewPage($data);
+
             return view($data['view_page'], ['data' => $data, 'configs' => $this->configs]);
         } else {
             return redirect()->route('home');

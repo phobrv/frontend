@@ -36,25 +36,6 @@ class HandleDataMenuPage
     {
         $data['meta']['meta_thumb'] = $data['post']->thumb;
         switch ($data['post']->subtype) {
-            case 'productgroup':
-            case 'product':
-                $data = $this->handleProductsPage($data);
-                break;
-            case 'order':
-                $data['view_page'] = 'phont::frontend.page.order';
-                break;
-            case 'category':
-                $data = $this->handleCategoryPage($data);
-                break;
-            case 'video':
-                $data = $this->handleVideosPage($data);
-                break;
-            case 'article':
-                $data['view_page'] = 'phont::frontend.page.article';
-                break;
-            case 'contact':
-                $data = $this->handleContactPage($data);
-                break;
             case 'drugstore':
                 $data['region'] = $this->termRepository->findWhere(['taxonomy' => 'region']);
                 $data['view_page'] = 'phont::frontend.page.drugstore.region';
@@ -62,38 +43,12 @@ class HandleDataMenuPage
             case 'recruitment':
                 $data = $this->handleDataRecruitmentsPage($data);
                 break;
-            case 'gallery':
-                $data['view_page'] = 'phont::frontend.page.image.gallery';
-                break;
-            case 'album':
-                $data['view_page'] = 'phont::frontend.page.image.album';
-                break;
             case 'agency':
                 $data = $this->handleAgencyPage($data);
                 break;
         }
 
         return $data;
-    }
-
-    public function handleProductsPage($data)
-    {
-        return $this->handleViewPageMulti($data, 'phont::frontend.page.products');
-    }
-
-    public function handleCategoryPage($data)
-    {
-        return $this->handleViewPageMulti($data, 'phont::frontend.page.posts');
-    }
-
-    public function handleVideosPage($data)
-    {
-        return $this->handleViewPageMulti($data, 'phont::frontend.page.video');
-    }
-
-    public function handleContactPage($data)
-    {
-        return $this->handleViewPageMulti($data, 'phont::frontend.page.contact');
     }
 
     public function handleDataRecruitmentsPage($data)
@@ -107,7 +62,6 @@ class HandleDataMenuPage
                 $data['posts'][$i]['meta'] = $this->postService->getMeta($data['posts'][$i]->postMetas);
             }
         }
-        $data['view_page'] = 'phont::frontend.page.recruitment.list';
 
         return $data;
     }
@@ -131,20 +85,6 @@ class HandleDataMenuPage
         $data['agencies'] = $term->posts->sortBy('order');
         if (! empty($data['agencies'][0])) {
             $data['agencyCur'] = $data['agencies'][0];
-        }
-
-        return $data;
-    }
-
-    public function handleViewPageMulti($data, $folder)
-    {
-        $prefix_layout = $data['meta']['layout'] ?? 'layout1';
-        $full = $folder.'.'.$prefix_layout;
-        $short = $folder.'.'.$prefix_layout.'_short';
-        if (isset($data['page'])) {
-            $data['view_page'] = $short;
-        } else {
-            $data['view_page'] = $full;
         }
 
         return $data;
