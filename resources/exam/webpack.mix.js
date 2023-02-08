@@ -11,41 +11,49 @@ const path = require("path");
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.sass(
-        "packages/phont/frontend/resources/assets/frontend/css/main.scss",
-        "public/css/"
-    )
-    // .sourceMaps(true, "source-map")
-    .options({
-        processCssUrls: false,
-    });
-
-mix.combine(
-    [
-        "packages/phont/frontend/resources/assets/frontend/js/jquery-3.6.0.min.js",
-        "packages/phont/frontend/resources/assets/frontend/js/lazysizes.min.js",
-        "packages/phont/frontend/resources/assets/bootstrap5/js/bootstrap.bundle.min.js",
-        "packages/phont/frontend/resources/assets/frontend/js/jquery.barrating.min.js",
-        "packages/phont/frontend/resources/assets/frontend/js/smooth-scroll.polyfills.min.js",
-        "packages/phont/frontend/resources/assets/magnific/jquery.magnific-popup.js",
-        "packages/phont/frontend/resources/assets/swiper/swiper-bundle.min.js",
-        "packages/phont/frontend/resources/assets/frontend/js/wow.min.js",
-        "packages/phont/frontend/resources/assets/frontend/js/frontend.js",
-    ],
-    "public/js/frontend.js"
-).options({
+mix
+  .sass(
+    "packages/phobrv/frontend/resources/assets/frontend/css/main.scss",
+    "public/css/"
+  )
+  //   .sourceMaps(true, "source-map")
+  .options({
     processCssUrls: false,
-});
+  });
 
-mix.styles([
-    'public/vendor/phobrv/adminlte3/plugins/fontawesome-free/css/all.css',
-    'public/vendor/phobrv/css/admin_cus.css',
-    'public/vendor/phobrv/adminlte3/css/adminlte.css',
-    'public/vendor/phobrv/adminlte3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css',
-    'public/vendor/phobrv/adminlte3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css',
-    'public/vendor/phobrv/adminlte3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css',
-    'public/vendor/phobrv/adminlte3/plugins/select2/css/select2.min.css',
-    'public/vendor/phobrv/adminlte3/plugins/select2/css/select2.min.css',
-], 'public/css/admin.css').options({
-    processCssUrls: false,
-}).version();
+// mix.combine(
+//     [
+//         "packages/phobrv/frontend/resources/assets/frontend/js/jquery-3.6.0.min.js",
+//         "packages/phobrv/frontend/resources/assets/frontend/js/lazysizes.min.js",
+//         "packages/phobrv/frontend/resources/assets/bootstrap5/js/bootstrap.bundle.min.js",
+//         "packages/phobrv/frontend/resources/assets/frontend/js/jquery.barrating.min.js",
+//         "packages/phobrv/frontend/resources/assets/frontend/js/smooth-scroll.polyfills.min.js",
+//         "packages/phobrv/frontend/resources/assets/magnific/jquery.magnific-popup.js",
+//         "packages/phobrv/frontend/resources/assets/swiper/swiper-bundle.min.js",
+//         "packages/phobrv/frontend/resources/assets/frontend/js/wow.min.js",
+//         "packages/phobrv/frontend/resources/assets/frontend/js/frontend.js",
+//     ],
+//     "public/js/frontend.js"
+// ).options({
+//     processCssUrls: false,
+// });
+
+//Chỉ dùng trên bản local
+// mix
+//   .styles(
+//     [
+//       "packages/phobrv/brvcore/resources/assets/adminlte3/plugins/fontawesome-free/css/all.css",
+//       "packages/phobrv/brvcore/resources/assets/css/admin_cus.css",
+//       "packages/phobrv/brvcore/resources/assets/adminlte3/css/adminlte.css",
+//       "packages/phobrv/brvcore/resources/assets/adminlte3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",
+//       "packages/phobrv/brvcore/resources/assets/adminlte3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
+//       "packages/phobrv/brvcore/resources/assets/adminlte3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css",
+//       "packages/phobrv/brvcore/resources/assets/adminlte3/plugins/select2/css/select2.min.css",
+//       "packages/phobrv/brvcore/resources/assets/colorbox/colorbox.css",
+//     ],
+//     "public/css/admin.css"
+//   )
+//   .options({
+//     processCssUrls: false,
+//   })
+//   .version();
