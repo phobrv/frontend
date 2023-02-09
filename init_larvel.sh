@@ -20,5 +20,6 @@ composer update
 php artisan jetstream:install livewire
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 php artisan elfinder:publish
+php artisan vendor:publish --force --tag=frontend.source
 npm install
 npm run production
