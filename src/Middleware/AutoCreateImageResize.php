@@ -29,7 +29,7 @@ class AutoCreateImageResize
                     $image = new ImageResize($storagePath);
                     $pathResize = str_replace('photos', $folderResize, $storagePath);
                     $this->folderCheck($pathResize);
-                    if (!is_file($pathResize)) {
+                    if (! is_file($pathResize)) {
                         $withResize = str_replace('rs', '', $folderResize);
                         $image->resizeToWidth($withResize);
                         $image->save($pathResize);
@@ -46,7 +46,7 @@ class AutoCreateImageResize
         $arrayPath = explode('/', $pathImage);
         array_pop($arrayPath);
         $folder = implode('/', $arrayPath);
-        if (!file_exists($folder)) {
+        if (! file_exists($folder)) {
             mkdir($folder, 0755, true);
         }
     }

@@ -68,7 +68,7 @@ class CartController extends Controller
             return redirect()->route('home');
         }
 
-        if (!empty($dataRequest['payment_id'])) {
+        if (! empty($dataRequest['payment_id'])) {
             $transaction_info = $dataRequest['transaction_info'];
             $order_code = $dataRequest['order_code'];
             $price = $dataRequest['price'];
@@ -101,7 +101,7 @@ class CartController extends Controller
     public function cancel(Request $request, $order_id)
     {
         $data = $this->receiveDataRepository->find($order_id);
-        if (!empty($data) && $data->status == 0) {
+        if (! empty($data) && $data->status == 0) {
             $data = $this->receiveDataRepository->update(['status' => '-1'], $order_id);
             $data['meta'] = $this->receiveDataRepository->getMeta($data['receiveDataMetas']);
             $data['cart'] = json_decode($data['meta']['cart']);
@@ -200,7 +200,7 @@ class CartController extends Controller
             ]
         )->first();
 
-        if (!$ck) {
+        if (! $ck) {
             $data['type'] = 'order';
             $data['cart'] = Cart::content();
             $data['content'] = $this->cartService->genCartTableReport($data);
@@ -263,15 +263,15 @@ class CartController extends Controller
     private function sentNotifaction($order)
     {
         $data['title'] = 'Mail thông báo đơn hàng thành công';
-        $data['content'] = 'Url admin:' . route('order.edit', ['order' => $order->id]);
-        $data['subject'] = config('app.name') . ' report #' . $order->id;
+        $data['content'] = 'Url admin:'.route('order.edit', ['order' => $order->id]);
+        $data['subject'] = config('app.name').' report #'.$order->id;
         $data['tos'] = $this->userRepository->getArrayMailReport();
-        $data['content_telegram'] = env('APP_NAME') . ' thông báo đơn hàng thành công' .
-            "\nTime: " . date('H:i:s d-m-Y') .
-            "\nUrl admin:" . route('order.edit', ['order' => $order->id]) .
-            "\n Tên:" . $order->name .
-            "\n Phone:" . $order->phone .
-            "\n Note:" . $order->note;
+        $data['content_telegram'] = env('APP_NAME').' thông báo đơn hàng thành công'.
+            "\nTime: ".date('H:i:s d-m-Y').
+            "\nUrl admin:".route('order.edit', ['order' => $order->id]).
+            "\n Tên:".$order->name.
+            "\n Phone:".$order->phone.
+            "\n Note:".$order->note;
         $this->notificationService->sentNotification($data, $this->configs);
     }
 }

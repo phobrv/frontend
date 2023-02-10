@@ -32,7 +32,7 @@ class RatingService
         foreach ($metas as $meta) {
             $value = json_decode($meta->value);
 
-            if (!empty($value->active)) {
+            if (! empty($value->active)) {
                 array_push($contents, $value);
                 $out['total'] += $value->rating;
                 $out['number']++;

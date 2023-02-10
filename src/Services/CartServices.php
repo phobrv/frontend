@@ -57,7 +57,7 @@ class CartServices
                 $out .= ' + ';
             }
 
-            $out .= $p->qty . ' x ' . $p->name;
+            $out .= $p->qty.' x '.$p->name;
         }
 
         return $out;

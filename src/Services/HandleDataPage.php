@@ -51,9 +51,9 @@ class HandleDataPage
                 ['slug' => '#', 'name' => htmlentities($data['q'])],
             ]
         );
-        $data['post']->title = 'Kết quả tìm kiếm: ' . $data['q'];
-        $data['meta']['meta_description'] = 'Kết quả tìm kiếm: ' . $data['q'];
-        $data['meta']['meta_keywords'] = 'Kết quả tìm kiếm: ' . $data['q'];
+        $data['post']->title = 'Kết quả tìm kiếm: '.$data['q'];
+        $data['meta']['meta_description'] = 'Kết quả tìm kiếm: '.$data['q'];
+        $data['meta']['meta_keywords'] = 'Kết quả tìm kiếm: '.$data['q'];
         $data['view_page'] = 'phont::frontend.page.search';
 
         return $data;
@@ -63,7 +63,7 @@ class HandleDataPage
     {
         $data = $request->all();
         $data['post'] = $this->postRepository->with('terms')->orderBy('created_at', 'desc')->findWhere(['slug' => $slug])->first();
-        if (!isset($data['post']) || $data['post']->subtype == 'home') {
+        if (! isset($data['post']) || $data['post']->subtype == 'home') {
             return $data;
         }
         $data = $this->configLangService->handleTransPage($data);
@@ -107,10 +107,10 @@ class HandleDataPage
     public function handleDataProductPage($data)
     {
         $data['gallery'] = [];
-        if (!empty($data['meta']['option_number'])) {
+        if (! empty($data['meta']['option_number'])) {
             for ($i = 0; $i < $data['meta']['option_number']; $i++) {
-                $img = $data['meta']['option' . $i . 'image'] ?? $data['post']->thumb;
-                if (!empty($img)) {
+                $img = $data['meta']['option'.$i.'image'] ?? $data['post']->thumb;
+                if (! empty($img)) {
                     array_push($data['gallery'], $img);
                 }
             }
@@ -187,8 +187,8 @@ class HandleDataPage
                 ]
             );
             $data['meta']['category_term_paginate_source'] = $data['term']->posts()->orderBy('created_at', 'desc')->paginate(10);
-            $data['meta']['meta_title'] = 'Chủ đề: ' . $data['term']->name;
-            $data['meta']['meta_description'] = 'Chủ đề: ' . $data['term']->name;
+            $data['meta']['meta_title'] = 'Chủ đề: '.$data['term']->name;
+            $data['meta']['meta_description'] = 'Chủ đề: '.$data['term']->name;
             $data['view_page'] = 'phont::frontend.page.category.layout1';
         }
 
@@ -224,10 +224,10 @@ class HandleDataPage
 
     public function handleViewPage($data)
     {
-        $folder = 'phont::frontend.page.' . ($data['post']->type == 'menu_item' ? $data['post']->subtype : $data['post']->type);
+        $folder = 'phont::frontend.page.'.($data['post']->type == 'menu_item' ? $data['post']->subtype : $data['post']->type);
         $prefix_layout = $data['meta']['layout'] ?? 'layout1';
-        $full = $folder . '.' . $prefix_layout;
-        $short = $folder . '.' . $prefix_layout . '_short';
+        $full = $folder.'.'.$prefix_layout;
+        $short = $folder.'.'.$prefix_layout.'_short';
         if (isset($data['page'])) {
             $view_page = $short;
         } else {

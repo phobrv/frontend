@@ -35,9 +35,9 @@ class FrontEndComposer
     {
         $this->currentRequestUri = $_SERVER['REQUEST_URI'];
         $this->currentRouteName = \Route::current()->getName();
-        $this->fullHttpHost = config('option.http_type') . '://' . $_SERVER['HTTP_HOST'];
-        $this->fullUrl = config('option.http_type') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        $this->fullUrlNoQuery = config('option.http_type') . '://' . $_SERVER['HTTP_HOST'] . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $this->fullHttpHost = config('option.http_type').'://'.$_SERVER['HTTP_HOST'];
+        $this->fullUrl = config('option.http_type').'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $this->fullUrlNoQuery = config('option.http_type').'://'.$_SERVER['HTTP_HOST'].parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     }
 
     /**

@@ -87,17 +87,17 @@ class CommentAPIController extends Controller
     {
         $out = '<ol class="commnet-list">';
         foreach ($comments as $c1) {
-            $out .= '<li class="comment depth-1" id="comment-' . $c1->id . '">';
+            $out .= '<li class="comment depth-1" id="comment-'.$c1->id.'">';
             $out .= $this->boxComment($c1);
             if (count($c1->child)) {
                 $out .= '<ol class="children">';
                 foreach ($c1->child as $c2) {
-                    $out .= '<li class="comment depth-2" id="comment-' . $c1->id . '">';
+                    $out .= '<li class="comment depth-2" id="comment-'.$c1->id.'">';
                     $out .= $this->boxComment($c2);
                     if (isset($c2->child) && count($c2->child)) {
                         $out .= '<ol class="children">';
                         foreach ($c2->child as $c3) {
-                            $out .= '<li class="comment depth-3" id="comment-' . $c1->id . '">';
+                            $out .= '<li class="comment depth-3" id="comment-'.$c1->id.'">';
                             $out .= $this->boxComment($c3, 'stop');
                             $out .= '</li>';
                         }
@@ -117,18 +117,18 @@ class CommentAPIController extends Controller
 
     public function boxComment($c1, $isNoReply = null)
     {
-        $out = '<div id="div-comment-' . $c1->id . '" class="comment-body">';
+        $out = '<div id="div-comment-'.$c1->id.'" class="comment-body">';
         $out .= '<div class="comment-author">';
         $out .= '<img class="avatar" src="https://secure.gravatar.com/avatar/dd579cc2cffcf4069007475960ceece0?s=32&d=mm&r=g">';
-        $out .= '<b class="fn">' . $c1->name . '</b>';
+        $out .= '<b class="fn">'.$c1->name.'</b>';
         if ($isNoReply == null) {
-            $out .= '<span class="reply">' .
-                '<i class="fa fa-reply" aria-hidden="true"></i> ' .
-                '<a rel="nofollow" class="comment-reply-link" href="#comment-' . $c1->id . '" data-commentid="' . $c1->id . '" data-postid="' . $c1->post_id . '" >Trả lời</a></span>';
+            $out .= '<span class="reply">'.
+                '<i class="fa fa-reply" aria-hidden="true"></i> '.
+                '<a rel="nofollow" class="comment-reply-link" href="#comment-'.$c1->id.'" data-commentid="'.$c1->id.'" data-postid="'.$c1->post_id.'" >Trả lời</a></span>';
         }
 
         $out .= '</div>';
-        $out .= '<p>' . $c1->content . '</p>';
+        $out .= '<p>'.$c1->content.'</p>';
         $out .= '</div>';
 
         return $out;

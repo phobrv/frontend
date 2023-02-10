@@ -83,7 +83,7 @@ class HandleDataMenuPage
             $data['view_page'] = 'phont::frontend.page.agency.agencyBox';
         }
         $data['agencies'] = $term->posts->sortBy('order');
-        if (!empty($data['agencies'][0])) {
+        if (! empty($data['agencies'][0])) {
             $data['agencyCur'] = $data['agencies'][0];
         }
 

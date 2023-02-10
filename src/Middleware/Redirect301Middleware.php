@@ -22,7 +22,7 @@ class Redirect301Middleware
         $cur_url = strtok($request->getUri(), '?');
         $json_data = json_decode($redirect301_content);
 
-        if (!empty($json_data->$cur_url)) {
+        if (! empty($json_data->$cur_url)) {
             return redirect($json_data->$cur_url, 301);
         }
 
