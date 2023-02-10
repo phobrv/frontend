@@ -67,7 +67,7 @@ class ProductApiController extends Controller
             'items' => $posts,
         ];
 
-        return view('phont::frontend.page.products.layout1_short', ['data' => $out])->render();
+        return view('phont::frontend.page.productgroup.layout1_short', ['data' => $out])->render();
     }
 
     public function quotePrice(Request $request)
@@ -75,6 +75,6 @@ class ProductApiController extends Controller
         $data = $request->all();
         $product = $this->postRepository->find($data['product_id']);
 
-        return view('phont::frontend.page.product.coms.quotePrice', ['product' => $product])->render();
+        return view('phont::frontend.page.productgroup.coms.quotePrice', ['product' => $product])->render();
     }
 }
