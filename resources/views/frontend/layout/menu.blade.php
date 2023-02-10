@@ -3,11 +3,11 @@
     @include('svg.menu_bar')
 </div>
 <nav id="nav-menu">
-    {{-- <div class="toplg hidden-xl-up">
+    <div class="toplg hidden-xl-up">
         <a href="{{ route('home') }}">
             <img src="{{ $configs['logo_img'] ?? '' }}" class="w-100" alt="logo">
         </a>
-    </div> --}}
+    </div>
     <div class="menu-main-container d-flex justify-content-end">
         <ul id="menu-main">
             @if (!empty($configs['mainMenu']))
