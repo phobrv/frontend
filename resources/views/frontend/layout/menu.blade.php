@@ -15,15 +15,15 @@
                     @if (isset($m->childs) && count($m->childs) > 0)
                         <li class="menu-item dropdown">
                             <a href="{{ $m->url }}">
-                                {{ $m->title }}
+                                {{ $m->label }}
                                 <span class="hidden-lg-down">@include('svg.triangle')</span>
                             </a>
                             <span class="hidden-md-up">@include('svg.arrow_down2')</span>
                             <ul class="dropdown-menu">
                                 @foreach ($m->childs as $sub)
                                     <li class="dropdown-item">
-                                        <a title="{{ $sub->title }}" href="{{ $sub->url }}">
-                                            {{ $sub->title }}
+                                        <a title="{{ $sub->label }}" href="{{ $sub->url }}">
+                                            {{ $sub->label }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -31,7 +31,7 @@
                         </li>
                     @else
                         <li class="menu-item">
-                            <a href="{{ $m->url ?? '' }}">{{ $m->title ?? '' }}</a>
+                            <a href="{{ $m->url ?? '' }}">{{ $m->label ?? '' }}</a>
                         </li>
                     @endif
                 @endforeach
