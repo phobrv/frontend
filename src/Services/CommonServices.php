@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Services;
+namespace Phont\Frontend\Services;
 
 use KubAT\PhpSimple\HtmlDomParser;
 
@@ -9,8 +9,8 @@ class CommonServices
     public function genBreadcrumbsFrontEnd($arrayBread)
     {
         $out = '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-		<a itemprop="item" href="'.route('home').'">
-		<span itemprop="name"> '.__('Home').' </span>
+		<a itemprop="item" href="' . route('home') . '">
+		<span itemprop="name"> ' . __('Home') . ' </span>
 		</a>
 		<meta itemprop="position" content="1" />
 		</li>';
@@ -18,10 +18,10 @@ class CommonServices
         foreach ($arrayBread as $value) {
             $index++;
             $out .= '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-			<a itemprop="item" href="'.route('level1', ['slug' => $value['slug']]).'">
-			<span itemprop="name">'.$value['name'].'</span>
+			<a itemprop="item" href="' . route('level1', ['slug' => $value['slug']]) . '">
+			<span itemprop="name">' . $value['name'] . '</span>
 			</a>
-			<meta itemprop="position" content="'.$index.'" />
+			<meta itemprop="position" content="' . $index . '" />
 			</li>';
         }
 
@@ -48,11 +48,11 @@ class CommonServices
         foreach ($html->find('img') as $e) {
             $outertext = $e->outertext;
             $alt = $e->alt;
-            $e->class = ($e->class) ? $e->class.' lazyload' : 'lazyload';
+            $e->class = ($e->class) ? $e->class . ' lazyload' : 'lazyload';
             $new_outertext = $e->outertext;
             $new_outertext = preg_replace('/(src=)/i', 'data-src=', $new_outertext);
             if ($alt != '') {
-                $new_outertext = "<div class='img_wrap'>".$new_outertext."<div class='img_alt'>".$alt.'</div>'.'</div>';
+                $new_outertext = "<div class='img_wrap'>" . $new_outertext . "<div class='img_alt'>" . $alt . '</div>' . '</div>';
             }
             $content = str_replace($outertext, $new_outertext, $content);
         }

@@ -1,5 +1,5 @@
 {
-  "name": "phobrv/frontend",
+  "name": "phont/frontend",
   "description": ":package_description",
   "license": "MIT",
   "type": "project",
@@ -24,21 +24,21 @@
   },
   "autoload": {
     "psr-4": {
-      "Phobrv\\Frontend\\": "src/"
+      "Phont\\Frontend\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Phobrv\\Frontend\\Tests\\": "tests"
+      "Phont\\Frontend\\Tests\\": "tests"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Phobrv\\Frontend\\FrontendServiceProvider"
+        "Phont\\Frontend\\FrontendServiceProvider"
       ],
       "aliases": {
-        "Frontend": "Phobrv\\Frontend\\Facades\\Frontend"
+        "Frontend": "Phont\\Frontend\\Facades\\Frontend"
       }
     }
   },

@@ -1,4 +1,4 @@
-@extends("phobrv::frontend.layout.2col")
+@extends("phont::frontend.layout.2col")
 @section('content')
 <div id="post">
 	<div class="page-title mb-3">
@@ -17,13 +17,13 @@
 	@isset($data['concern'])
 	@foreach($data['concern'] as $p)
 	<div class="col-md-4 @if($loop->index > 2) hidden-md-down @endif">
-		@include("phobrv::frontend.page.video.coms.boxVideo1",['p'=>$p])
+		@include("phont::frontend.page.video.coms.boxVideo1",['p'=>$p])
 	</div>
 	@endforeach
 	@endif
 </div>
 
-@include("phobrv::frontend.components.boxCommentFB")
+@include("phont::frontend.components.boxCommentFB")
 @endsection
 
 @section('script')

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Facades;
+namespace Phont\Frontend\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

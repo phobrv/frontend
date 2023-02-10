@@ -1,23 +1,23 @@
 <ul class="report-detail">
     <li>
-        @include('phobrv::frontend.components.rating.ratingShow', ['rating' => 5, 'disabled' => 'disabled'])
-        @include('phobrv::frontend.components.rating.process', ['value' => $data['rating5']])
+        @include('phont::frontend.components.rating.ratingShow', ['rating' => 5, 'disabled' => 'disabled'])
+        @include('phont::frontend.components.rating.process', ['value' => $data['rating5']])
     </li>
     <li>
-        @include('phobrv::frontend.components.rating.ratingShow', ['rating' => 4, 'disabled' => 'disabled'])
-        @include('phobrv::frontend.components.rating.process', ['value' => $data['rating4']])
+        @include('phont::frontend.components.rating.ratingShow', ['rating' => 4, 'disabled' => 'disabled'])
+        @include('phont::frontend.components.rating.process', ['value' => $data['rating4']])
     </li>
     <li>
-        @include('phobrv::frontend.components.rating.ratingShow', ['rating' => 3, 'disabled' => 'disabled'])
-        @include('phobrv::frontend.components.rating.process', ['value' => $data['rating3']])
+        @include('phont::frontend.components.rating.ratingShow', ['rating' => 3, 'disabled' => 'disabled'])
+        @include('phont::frontend.components.rating.process', ['value' => $data['rating3']])
     </li>
     <li>
-        @include('phobrv::frontend.components.rating.ratingShow', ['rating' => 2, 'disabled' => 'disabled'])
-        @include('phobrv::frontend.components.rating.process', ['value' => $data['rating2']])
+        @include('phont::frontend.components.rating.ratingShow', ['rating' => 2, 'disabled' => 'disabled'])
+        @include('phont::frontend.components.rating.process', ['value' => $data['rating2']])
     </li>
     <li>
-        @include('phobrv::frontend.components.rating.ratingShow', ['rating' => 1, 'disabled' => 'disabled'])
-        @include('phobrv::frontend.components.rating.process', ['value' => $data['rating1']])
+        @include('phont::frontend.components.rating.ratingShow', ['rating' => 1, 'disabled' => 'disabled'])
+        @include('phont::frontend.components.rating.process', ['value' => $data['rating1']])
     </li>
 
 </ul>

@@ -5,7 +5,7 @@
 			<input type="hidden" name="id" value="{{ $data['post']->id ?? '0' }}">
 			<div id="rating-area">
 				@php $rating = $data['meta']['rating'] ?? '5' ; $total = $data['meta']['ratingTotal'] ?? '1'; @endphp
-				@include('phobrv::frontend.components.ratingSimple.ratingShow',['rating'=>$rating,'total'=>$total])
+				@include('phont::frontend.components.ratingSimple.ratingShow',['rating'=>$rating,'total'=>$total])
 			</div>
 		</form>
 	</div>

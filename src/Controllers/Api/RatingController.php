@@ -1,12 +1,12 @@
 <?php
 
-namespace Phobrv\Frontend\Controllers\Api;
+namespace Phont\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Phobrv\BrvCore\Repositories\PostRepository;
 use Phobrv\BrvCore\Services\PostServices;
-use Phobrv\Frontend\Services\RatingService;
+use Phont\Frontend\Services\RatingService;
 
 class RatingController extends Controller
 {
@@ -59,7 +59,7 @@ class RatingController extends Controller
         $arrayMeta['rating'] = round($total / $number, 2);
         $this->postRepository->insertMeta($post, $arrayMeta);
 
-        return view('phobrv::frontend.components.ratingShow', ['rating' => round($total / $number, 2), 'total' => $number, 'confirm' => '1'])->render();
+        return view('phont::frontend.components.ratingShow', ['rating' => round($total / $number, 2), 'total' => $number, 'confirm' => '1'])->render();
     }
 
     public function ratingv2(Request $request)
@@ -82,6 +82,6 @@ class RatingController extends Controller
     {
         $report = $this->ratingService->reportRatingV2($id);
 
-        return view('phobrv::frontend.components.rating.index', ['data' => $report])->render();
+        return view('phont::frontend.components.rating.index', ['data' => $report])->render();
     }
 }

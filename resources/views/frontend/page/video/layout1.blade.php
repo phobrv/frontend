@@ -1,9 +1,9 @@
-@extends("phobrv::frontend.layout.2col")
+@extends("phont::frontend.layout.2col")
 @section('content')
 <div class="category_main">
-	@include("phobrv::frontend.page.video.layout1_short")
+	@include("phont::frontend.page.video.layout1_short")
 </div>
-@include("phobrv::frontend.components.boxCommentFB")
+@include("phont::frontend.components.boxCommentFB")
 @endsection
 
 @section('script')

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Controllers\Api;
+namespace Phont\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Phobrv\BrvCore\Repositories\ReceiveDataRepository;
 use Phobrv\BrvCore\Repositories\UserRepository;
 use Phobrv\BrvCore\Services\NotificationService;
 use Phobrv\BrvCore\Services\OptionServices;
-use Phobrv\Frontend\Services\ReceivedDataServices;
+use Phont\Frontend\Services\ReceivedDataServices;
 
 class ReceivedApiController extends Controller
 {
@@ -47,7 +47,7 @@ class ReceivedApiController extends Controller
             $this->receiveDataRepository->insertMeta($receive, $data['arrayMeta']);
         }
 
-        $data['subject'] = config('app.name').' report #'.$receive->id;
+        $data['subject'] = config('app.name') . ' report #' . $receive->id;
         $data['tos'] = $this->userRepository->getArrayMailReport();
         $this->notificationService->sentNotification($data, $this->configs);
 

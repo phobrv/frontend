@@ -1,13 +1,13 @@
-@extends('phobrv::frontend.layout.1col')
+@extends('phont::frontend.layout.1col')
 @section('content')
-    @include('phobrv::frontend.layout.breadcrumb')
+    @include('phont::frontend.layout.breadcrumb')
     
     <div class="container">
-		@include('phobrv::frontend.page.category.coms.slideBanner')
+		@include('phont::frontend.page.category.coms.slideBanner')
         <div id="cagegory_page4" class="category_main mt-3">
-            @include('phobrv::frontend.page.category.layout4_short')
+            @include('phont::frontend.page.category.layout4_short')
         </div>
-		@include('phobrv::frontend.components.boxCommentFB')
+		@include('phont::frontend.components.boxCommentFB')
     </div>
 @endsection
 

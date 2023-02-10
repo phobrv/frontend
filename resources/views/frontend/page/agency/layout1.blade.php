@@ -1,4 +1,4 @@
-@extends("phobrv::frontend.layout.1col")
+@extends("phont::frontend.layout.1col")
 @section('content')
 <div id="agency-page">
 	<div class="container">
@@ -21,7 +21,7 @@
 			</div>
 		</form>
 		<div id="agencyBox">
-			@include('phobrv::frontend.page.agency.agencyBox')
+			@include('phont::frontend.page.agency.agencyBox')
 		</div>
 	</div>
 </div>

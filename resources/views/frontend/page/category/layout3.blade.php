@@ -1,13 +1,13 @@
-@extends("phobrv::frontend.layout.1col")
+@extends("phont::frontend.layout.1col")
 @section('content')
 <div class="container">
 	<div id="cagegory_page3" class="category_main mt-3">
 		<h1>{{$data['post']->title ?? ''}}</h1>
 
-		@include("phobrv::frontend.page.category.layout3_short")
+		@include("phont::frontend.page.category.layout3_short")
 	</div>
 </div>
-@include("phobrv::frontend.components.boxCommentFB")
+@include("phont::frontend.components.boxCommentFB")
 @endsection
 @section("script")
 <script>

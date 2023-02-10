@@ -1,4 +1,4 @@
-@extends("phobrv::frontend.layout.2col")
+@extends("phont::frontend.layout.2col")
 @section('content')
 <div id="post" class="mt-3">
 @isset($data['post'])
@@ -8,5 +8,5 @@
 	{!!$data['meta']['content'] ?? '' !!}
 	@endif
 </div>
-@include("phobrv::frontend.components.boxCommentFB")
+@include("phont::frontend.components.boxCommentFB")
 @endsection

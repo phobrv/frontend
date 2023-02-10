@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                @include('phobrv::frontend.page.checkout.table_short', ['data' => $data])
+                @include('phont::frontend.page.checkout.table_short', ['data' => $data])
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

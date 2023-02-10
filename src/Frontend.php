@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend;
+namespace Phont\Frontend;
 
 class Frontend
 {

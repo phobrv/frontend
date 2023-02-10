@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Services;
+namespace Phont\Frontend\Services;
 
 use Phobrv\BrvCore\Repositories\PostMetaRepository;
 use Phobrv\BrvCore\Repositories\PostRepository;
@@ -38,7 +38,7 @@ class HandleDataMenuPage
         switch ($data['post']->subtype) {
             case 'drugstore':
                 $data['region'] = $this->termRepository->findWhere(['taxonomy' => 'region']);
-                $data['view_page'] = 'phobrv::frontend.page.drugstore.region';
+                $data['view_page'] = 'phont::frontend.page.drugstore.region';
                 break;
             case 'recruitment':
                 $data = $this->handleDataRecruitmentsPage($data);
@@ -77,13 +77,13 @@ class HandleDataMenuPage
                 ->with('posts')
                 ->where('taxonomy', 'province')
                 ->first();
-            $data['view_page'] = 'phobrv::frontend.page.agency.index';
+            $data['view_page'] = 'phont::frontend.page.agency.index';
         } else {
             $term = $this->termRepository->with('posts')->find($data['term_id']);
-            $data['view_page'] = 'phobrv::frontend.page.agency.agencyBox';
+            $data['view_page'] = 'phont::frontend.page.agency.agencyBox';
         }
         $data['agencies'] = $term->posts->sortBy('order');
-        if (! empty($data['agencies'][0])) {
+        if (!empty($data['agencies'][0])) {
             $data['agencyCur'] = $data['agencies'][0];
         }
 

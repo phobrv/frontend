@@ -1,3 +1,3 @@
-@include("phobrv::frontend.layout.header")
+@include("phont::frontend.layout.header")
 @yield('content')
-@include("phobrv::frontend.layout.footer")
+@include("phont::frontend.layout.footer")

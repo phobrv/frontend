@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Services;
+namespace Phont\Frontend\Services;
 
 use Phobrv\BrvCore\Repositories\PostMetaRepository;
 use Phobrv\BrvCore\Repositories\PostRepository;
@@ -51,10 +51,10 @@ class HandleDataPage
                 ['slug' => '#', 'name' => htmlentities($data['q'])],
             ]
         );
-        $data['post']->title = 'Kết quả tìm kiếm: '.$data['q'];
-        $data['meta']['meta_description'] = 'Kết quả tìm kiếm: '.$data['q'];
-        $data['meta']['meta_keywords'] = 'Kết quả tìm kiếm: '.$data['q'];
-        $data['view_page'] = 'phobrv::frontend.page.search';
+        $data['post']->title = 'Kết quả tìm kiếm: ' . $data['q'];
+        $data['meta']['meta_description'] = 'Kết quả tìm kiếm: ' . $data['q'];
+        $data['meta']['meta_keywords'] = 'Kết quả tìm kiếm: ' . $data['q'];
+        $data['view_page'] = 'phont::frontend.page.search';
 
         return $data;
     }
@@ -63,7 +63,7 @@ class HandleDataPage
     {
         $data = $request->all();
         $data['post'] = $this->postRepository->with('terms')->orderBy('created_at', 'desc')->findWhere(['slug' => $slug])->first();
-        if (! isset($data['post']) || $data['post']->subtype == 'home') {
+        if (!isset($data['post']) || $data['post']->subtype == 'home') {
             return $data;
         }
         $data = $this->configLangService->handleTransPage($data);
@@ -107,10 +107,10 @@ class HandleDataPage
     public function handleDataProductPage($data)
     {
         $data['gallery'] = [];
-        if (! empty($data['meta']['option_number'])) {
+        if (!empty($data['meta']['option_number'])) {
             for ($i = 0; $i < $data['meta']['option_number']; $i++) {
-                $img = $data['meta']['option'.$i.'image'] ?? $data['post']->thumb;
-                if (! empty($img)) {
+                $img = $data['meta']['option' . $i . 'image'] ?? $data['post']->thumb;
+                if (!empty($img)) {
                     array_push($data['gallery'], $img);
                 }
             }
@@ -153,9 +153,9 @@ class HandleDataPage
     {
         $data['childs'] = $this->postRepository->findWhere(['parent' => $data['post']->id]);
         if (count($data['childs'])) {
-            $data['view_page'] = 'phobrv::frontend.page.drugstore.regionSmall';
+            $data['view_page'] = 'phont::frontend.page.drugstore.regionSmall';
         } else {
-            $data['view_page'] = 'phobrv::frontend.page.drugstore.drugstore';
+            $data['view_page'] = 'phont::frontend.page.drugstore.drugstore';
         }
 
         return $data;
@@ -187,9 +187,9 @@ class HandleDataPage
                 ]
             );
             $data['meta']['category_term_paginate_source'] = $data['term']->posts()->orderBy('created_at', 'desc')->paginate(10);
-            $data['meta']['meta_title'] = 'Chủ đề: '.$data['term']->name;
-            $data['meta']['meta_description'] = 'Chủ đề: '.$data['term']->name;
-            $data['view_page'] = 'phobrv::frontend.page.category.layout1';
+            $data['meta']['meta_title'] = 'Chủ đề: ' . $data['term']->name;
+            $data['meta']['meta_description'] = 'Chủ đề: ' . $data['term']->name;
+            $data['view_page'] = 'phont::frontend.page.category.layout1';
         }
 
         return $data;
@@ -224,10 +224,10 @@ class HandleDataPage
 
     public function handleViewPage($data)
     {
-        $folder = 'phobrv::frontend.page.'.($data['post']->type == 'menu_item' ? $data['post']->subtype : $data['post']->type);
+        $folder = 'phont::frontend.page.' . ($data['post']->type == 'menu_item' ? $data['post']->subtype : $data['post']->type);
         $prefix_layout = $data['meta']['layout'] ?? 'layout1';
-        $full = $folder.'.'.$prefix_layout;
-        $short = $folder.'.'.$prefix_layout.'_short';
+        $full = $folder . '.' . $prefix_layout;
+        $short = $folder . '.' . $prefix_layout . '_short';
         if (isset($data['page'])) {
             $view_page = $short;
         } else {

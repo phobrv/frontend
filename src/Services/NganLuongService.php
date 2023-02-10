@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Services;
+namespace Phont\Frontend\Services;
 
 /**
  * Ngan Luong payment gateway
@@ -75,7 +75,7 @@ class NganLuongService
         ];
 
         $secure_code = '';
-        $secure_code = implode(' ', $arr_param).' '.$this->secure_pass;
+        $secure_code = implode(' ', $arr_param) . ' ' . $this->secure_pass;
         //var_dump($secure_code). "<br/>";
         $arr_param['secure_code'] = md5($secure_code);
         //echo $arr_param['secure_code'];
@@ -92,14 +92,14 @@ class NganLuongService
         foreach ($arr_param as $key => $value) {
             $value = urlencode($value);
             if ($url == '') {
-                $url .= $key.'='.$value;
+                $url .= $key . '=' . $value;
             } else {
-                $url .= '&'.$key.'='.$value;
+                $url .= '&' . $key . '=' . $value;
             }
         }
         //echo $url;
         // die;
-        return $redirect_url.$url;
+        return $redirect_url . $url;
     }
 
     /**
@@ -124,7 +124,7 @@ class NganLuongService
             'price' => strval($price),
         ];
         $secure_code = '';
-        $secure_code = implode(' ', $arr_param).' '.$this->secure_pass;
+        $secure_code = implode(' ', $arr_param) . ' ' . $this->secure_pass;
         $arr_param['secure_code'] = md5($secure_code);
 
         /* Bước 2. Kiểm tra  biến $redirect_url xem có '?' không, nếu không có thì bổ sung vào*/
@@ -144,13 +144,13 @@ class NganLuongService
             }
 
             if ($url == '') {
-                $url .= $key.'='.$value;
+                $url .= $key . '=' . $value;
             } else {
-                $url .= '&'.$key.'='.$value;
+                $url .= '&' . $key . '=' . $value;
             }
         }
 
-        return $redirect_url.$url;
+        return $redirect_url . $url;
     }
 
     /**
@@ -169,14 +169,14 @@ class NganLuongService
     {
         // Tạo mã xác thực từ chủ web
         $str = '';
-        $str .= ' '.strval($transaction_info);
-        $str .= ' '.strval($order_code);
-        $str .= ' '.strval($price);
-        $str .= ' '.strval($payment_id);
-        $str .= ' '.strval($payment_type);
-        $str .= ' '.strval($error_text);
-        $str .= ' '.strval($this->merchant_site_code);
-        $str .= ' '.strval($this->secure_pass);
+        $str .= ' ' . strval($transaction_info);
+        $str .= ' ' . strval($order_code);
+        $str .= ' ' . strval($price);
+        $str .= ' ' . strval($payment_id);
+        $str .= ' ' . strval($payment_type);
+        $str .= ' ' . strval($error_text);
+        $str .= ' ' . strval($this->merchant_site_code);
+        $str .= ' ' . strval($this->secure_pass);
 
         // Mã hóa các tham số
         $verify_secure_code = '';
@@ -227,7 +227,7 @@ class NganLuongService
     {
         $params = [
             //Mã đơn hàng
-            'order_code' => 'WEB_'.$data['order']->id,
+            'order_code' => 'WEB_' . $data['order']->id,
             //Khai báo url trả về
             'return_url' => route('success', ['id' => $data['order']->id]),
             // Link nut hủy đơn hàng
@@ -244,11 +244,11 @@ class NganLuongService
             'fee_cal' => 0,
             'fee_shipping' => 0,
             'order_description' => $data['meta']['order_description'],
-            'buyer_info' => $data['name'].'*|*'.''.'*|*'.$data['phone'],
+            'buyer_info' => $data['name'] . '*|*' . '' . '*|*' . $data['phone'],
         ];
 
         $url = $this->buildCheckoutUrlExpand($params['return_url'], $params['transaction_info'], $params['order_code'], $params['price'], $params['currency'], $params['quantity'], $params['tax'], $params['discount'], $params['fee_cal'], $params['fee_shipping'], $params['order_description'], $params['buyer_info'], '');
-        $url .= '&cancel_url='.$params['cancel_url'].'&notify_url='.$params['notify_url'];
+        $url .= '&cancel_url=' . $params['cancel_url'] . '&notify_url=' . $params['notify_url'];
 
         return $url;
     }

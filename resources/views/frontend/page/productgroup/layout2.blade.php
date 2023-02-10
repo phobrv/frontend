@@ -1,7 +1,7 @@
-@extends("phobrv::frontend.layout.2col")
+@extends("phont::frontend.layout.2col")
 @section('content')
 <div id="products-page">
-	@include('phobrv::frontend.page.productgroup.layout2_short')
+	@include('phont::frontend.page.productgroup.layout2_short')
 </div>
 @endsection
 

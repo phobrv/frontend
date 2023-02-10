@@ -1,13 +1,13 @@
 <?php
 
-namespace Phobrv\Frontend\Controllers\Api;
+namespace Phont\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Phobrv\BrvCore\Repositories\PostRepository;
 use Phobrv\BrvCore\Repositories\TermRepository;
 use Phobrv\BrvCore\Services\PostServices;
-use Phobrv\Frontend\Services\RatingService;
+use Phont\Frontend\Services\RatingService;
 
 class ProductApiController extends Controller
 {
@@ -67,7 +67,7 @@ class ProductApiController extends Controller
             'items' => $posts,
         ];
 
-        return view('phobrv::frontend.page.products.layout1_short', ['data' => $out])->render();
+        return view('phont::frontend.page.products.layout1_short', ['data' => $out])->render();
     }
 
     public function quotePrice(Request $request)
@@ -75,6 +75,6 @@ class ProductApiController extends Controller
         $data = $request->all();
         $product = $this->postRepository->find($data['product_id']);
 
-        return view('phobrv::frontend.page.product.coms.quotePrice', ['product' => $product])->render();
+        return view('phont::frontend.page.product.coms.quotePrice', ['product' => $product])->render();
     }
 }

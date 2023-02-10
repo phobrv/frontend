@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Validators;
+namespace Phont\Frontend\Validators;
 
 use GuzzleHttp\Client;
 

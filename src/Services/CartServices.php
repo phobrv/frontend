@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Services;
+namespace Phont\Frontend\Services;
 
 use Cart;
 use Phobrv\BrvCore\Repositories\UserRepository;
@@ -41,12 +41,12 @@ class CartServices
 
     public function genCartTable($data)
     {
-        return view('phobrv::frontend.page.checkout.table', ['data' => $data])->render();
+        return view('phont::frontend.page.checkout.table', ['data' => $data])->render();
     }
 
     public function genCartTableReport($data)
     {
-        return view('phobrv::frontend.page.checkout.table_report', ['data' => $data])->render();
+        return view('phont::frontend.page.checkout.table_report', ['data' => $data])->render();
     }
 
     public function getOrderDesc($cart)
@@ -57,7 +57,7 @@ class CartServices
                 $out .= ' + ';
             }
 
-            $out .= $p->qty.' x '.$p->name;
+            $out .= $p->qty . ' x ' . $p->name;
         }
 
         return $out;

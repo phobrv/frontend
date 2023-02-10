@@ -2,7 +2,7 @@
 	@isset($data['meta']['product_term_paginate_source'])
 	@foreach($data['meta']['product_term_paginate_source'] as $p)
 	<div class="col-md-4">
-		@include("phobrv::frontend.page.productgroup.coms.boxProduct2",['p'=>$p])
+		@include("phont::frontend.page.productgroup.coms.boxProduct2",['p'=>$p])
 	</div>
 	@endforeach
 	@endif

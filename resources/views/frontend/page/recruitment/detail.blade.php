@@ -1,6 +1,6 @@
-@extends("phobrv::frontend.layout.1col")
+@extends("phont::frontend.layout.1col")
 @section('content')
-@include('phobrv::frontend.layout.breadcrumb')
+@include('phont::frontend.layout.breadcrumb')
 <section id="recruitment-page">
 	<div class="container">
 		<div class="row">

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Services;
+namespace Phont\Frontend\Services;
 
 class ReceivedDataServices
 {
@@ -14,11 +14,11 @@ class ReceivedDataServices
 
     public function handle($data)
     {
-        $this->content = 'Time:  '.date('H:i:s d-m-Y');
+        $this->content = 'Time:  ' . date('H:i:s d-m-Y');
         switch ($data['type']) {
             case 'contact':
-                $this->content_telegram = '<b>'.config('app.name')." thông báo liên hệ mới </b>\n"
-                    .'<b>Time:</b>  '.date('d-m-Y H:i:s')."\n";
+                $this->content_telegram = '<b>' . config('app.name') . " thông báo liên hệ mới </b>\n"
+                    . '<b>Time:</b>  ' . date('d-m-Y H:i:s') . "\n";
                 $this->title = 'Mail thông báo liên hệ mới';
                 break;
         }
@@ -37,12 +37,12 @@ class ReceivedDataServices
 
         foreach ($updateData as $dataPoint) {
             [$field, $label] = $dataPoint;
-            if (! empty($data[$field])) {
+            if (!empty($data[$field])) {
                 $this->updateData($field, $data[$field], $label);
             }
         }
 
-        if (! empty($data['number'])) {
+        if (!empty($data['number'])) {
             $data['arrayMeta'] = ['number' => $data['number']];
         }
         $data['received'] = $receivedData;
@@ -55,7 +55,7 @@ class ReceivedDataServices
     private function updateData($key, $value, $prefix)
     {
         $this->received[$key] = $value;
-        $this->content .= '<br>'.$prefix.': '.$value;
-        $this->content_telegram .= '<b>'.$prefix.':</b> '.$value."\n";
+        $this->content .= '<br>' . $prefix . ': ' . $value;
+        $this->content_telegram .= '<b>' . $prefix . ':</b> ' . $value . "\n";
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phobrv\Frontend\Controllers\Api;
+namespace Phont\Frontend\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Cart;
@@ -13,8 +13,8 @@ use Phobrv\BrvCore\Services\HandleMenuServices;
 use Phobrv\BrvCore\Services\NotificationService;
 use Phobrv\BrvCore\Services\OptionServices;
 use Phobrv\BrvCore\Services\PostServices;
-use Phobrv\Frontend\Services\CartServices;
-use Phobrv\Frontend\Services\NganLuongService;
+use Phont\Frontend\Services\CartServices;
+use Phont\Frontend\Services\NganLuongService;
 
 class CartController extends Controller
 {
@@ -68,7 +68,7 @@ class CartController extends Controller
             return redirect()->route('home');
         }
 
-        if (! empty($dataRequest['payment_id'])) {
+        if (!empty($dataRequest['payment_id'])) {
             $transaction_info = $dataRequest['transaction_info'];
             $order_code = $dataRequest['order_code'];
             $price = $dataRequest['price'];
@@ -95,18 +95,18 @@ class CartController extends Controller
         $data['meta'] = $this->receiveDataRepository->getMeta($data['receiveDataMetas']);
         $data['cart'] = json_decode($data['meta']['cart']);
 
-        return view('phobrv::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
+        return view('phont::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
     }
 
     public function cancel(Request $request, $order_id)
     {
         $data = $this->receiveDataRepository->find($order_id);
-        if (! empty($data) && $data->status == 0) {
+        if (!empty($data) && $data->status == 0) {
             $data = $this->receiveDataRepository->update(['status' => '-1'], $order_id);
             $data['meta'] = $this->receiveDataRepository->getMeta($data['receiveDataMetas']);
             $data['cart'] = json_decode($data['meta']['cart']);
 
-            return view('phobrv::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
+            return view('phont::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
         } else {
             return redirect()->route('home');
         }
@@ -117,7 +117,7 @@ class CartController extends Controller
         $data = $this->cartService->getCartContent([]);
         $data['meta'] = $this->cartService->genMetaData();
 
-        return view('phobrv::frontend.page.checkout.index', ['data' => $data, 'configs' => $this->configs]);
+        return view('phont::frontend.page.checkout.index', ['data' => $data, 'configs' => $this->configs]);
     }
 
     public function addProduct(Request $request)
@@ -142,7 +142,7 @@ class CartController extends Controller
                 );
             }
             $data = $this->cartService->getCartContent([]);
-            $modalCart = view('phobrv::frontend.page.checkout.modalCart', ['data' => $data])->render();
+            $modalCart = view('phont::frontend.page.checkout.modalCart', ['data' => $data])->render();
 
             return response()->json(['count' => Cart::count(), 'modalCart' => $modalCart]);
         } catch (Exception $e) {
@@ -200,7 +200,7 @@ class CartController extends Controller
             ]
         )->first();
 
-        if (! $ck) {
+        if (!$ck) {
             $data['type'] = 'order';
             $data['cart'] = Cart::content();
             $data['content'] = $this->cartService->genCartTableReport($data);
@@ -212,7 +212,7 @@ class CartController extends Controller
             Cart::destroy();
             $data['meta'] = $this->cartService->genMetaData();
             // dd($data);
-            return view('phobrv::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
+            return view('phont::frontend.page.checkout.success', ['data' => $data, 'configs' => $this->configs]);
         } else {
             return redirect()->route('home');
         }
@@ -263,15 +263,15 @@ class CartController extends Controller
     private function sentNotifaction($order)
     {
         $data['title'] = 'Mail thông báo đơn hàng thành công';
-        $data['content'] = 'Url admin:'.route('order.edit', ['order' => $order->id]);
-        $data['subject'] = config('app.name').' report #'.$order->id;
+        $data['content'] = 'Url admin:' . route('order.edit', ['order' => $order->id]);
+        $data['subject'] = config('app.name') . ' report #' . $order->id;
         $data['tos'] = $this->userRepository->getArrayMailReport();
-        $data['content_telegram'] = env('APP_NAME').' thông báo đơn hàng thành công'.
-            "\nTime: ".date('H:i:s d-m-Y').
-            "\nUrl admin:".route('order.edit', ['order' => $order->id]).
-            "\n Tên:".$order->name.
-            "\n Phone:".$order->phone.
-            "\n Note:".$order->note;
+        $data['content_telegram'] = env('APP_NAME') . ' thông báo đơn hàng thành công' .
+            "\nTime: " . date('H:i:s d-m-Y') .
+            "\nUrl admin:" . route('order.edit', ['order' => $order->id]) .
+            "\n Tên:" . $order->name .
+            "\n Phone:" . $order->phone .
+            "\n Note:" . $order->note;
         $this->notificationService->sentNotification($data, $this->configs);
     }
 }

@@ -1,6 +1,6 @@
-@extends("phobrv::frontend.layout.1col")
+@extends("phont::frontend.layout.1col")
 @section('content')
-@include("phobrv::frontend.layout.breadcrumb")
+@include("phont::frontend.layout.breadcrumb")
 <script src="https://www.google.com/recaptcha/api.js?render={{ env('GOOGLE_RECAPTCHA_V3_KEY') }}"></script>
 
 <section id="contact-page2">
