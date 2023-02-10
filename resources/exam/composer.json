@@ -63,7 +63,7 @@
     "post-create-project-cmd": [
       "@php artisan key:generate --ansi"
     ],
-    "dump": [
+    "db": [
       "mysqldump -u root -p shop_db | gzip  > backup/db_backup.sql.gz "
     ],
     "git": [
