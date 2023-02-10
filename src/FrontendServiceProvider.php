@@ -79,7 +79,7 @@ class FrontendServiceProvider extends ServiceProvider
 
         // Publishing the views.
         $this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/phobrv'),
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/phont'),
         ], 'frontend.view');
 
         // Publishing assets.
