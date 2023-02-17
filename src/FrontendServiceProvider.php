@@ -80,7 +80,6 @@ class FrontendServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/assets/frontend' => resource_path('frontend'),
             __DIR__.'/../resources/exam/AppServiceProvider.php' => base_path('app/Providers/AppServiceProvider.php'),
-            __DIR__.'/../resources/exam/composer.json' => base_path('composer.json'),
             __DIR__.'/../resources/exam/.env.exam' => base_path('.env'),
             __DIR__.'/../resources/exam/elfinder.php' => base_path('config/elfinder.php'),
             __DIR__.'/../resources/exam/en.json' => base_path('lang/en.json'),
