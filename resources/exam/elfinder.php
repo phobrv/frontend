@@ -1,10 +1,5 @@
 <?php
 
-function validName($name)
-{
-    return preg_match('/^[ a-z0-9._-]+$/i', $name) == 1;
-}
-
 return [
 
     /*
@@ -92,7 +87,7 @@ return [
     */
     'root_options' => [
         'uploadMaxSize' => '2M',
-        'acceptedName' => 'validName',
+        'acceptedName' => 'Phobrv\BrvCore\Services\UnitServices::validName',
     ],
 
 ];
