@@ -23,11 +23,6 @@ class HomeController extends Controller
     ) {
         $this->handleDataPage = $handleDataPage;
         $this->configs = $optionServices->getConfigs($optionRepository->where('autoload', 'yes')->get());
-        $this->configs['mainMenu'] = $handleMenuService->getMenus($this->configs, 'main_menu', 'disablePrivateMenu');
-        $this->configs['secondMenu'] = $handleMenuService->getMenus($this->configs, 'second_menu', 'disablePrivateMenu');
-        $this->configs['thirdMenu'] = $handleMenuService->getMenus($this->configs, 'third_menu', 'disablePrivateMenu');
-        $this->configs['fouthMenu'] = $handleMenuService->getMenus($this->configs, 'fouth_menu', 'disablePrivateMenu');
-        $this->configs['fifthMenu'] = $handleMenuService->getMenus($this->configs, 'fifth_menu', 'disablePrivateMenu');
     }
 
     public function index(Request $request)
