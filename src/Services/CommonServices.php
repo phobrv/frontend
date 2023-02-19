@@ -44,19 +44,21 @@ class CommonServices
     public function handlePostContent($post)
     {
         $content = $post->content;
-        $html = HtmlDomParser::str_get_html($content);
-        foreach ($html->find('img') as $e) {
-            $outertext = $e->outertext;
-            $alt = $e->alt;
-            $e->class = ($e->class) ? $e->class.' lazyload' : 'lazyload';
-            $new_outertext = $e->outertext;
-            $new_outertext = preg_replace('/(src=)/i', 'data-src=', $new_outertext);
-            if ($alt != '') {
-                $new_outertext = "<div class='img_wrap'>".$new_outertext."<div class='img_alt'>".$alt.'</div>'.'</div>';
+        if (! empty($content)) {
+            $html = HtmlDomParser::str_get_html($content);
+            foreach ($html->find('img') as $e) {
+                $outertext = $e->outertext;
+                $alt = $e->alt;
+                $e->class = ($e->class) ? $e->class.' lazyload' : 'lazyload';
+                $new_outertext = $e->outertext;
+                $new_outertext = preg_replace('/(src=)/i', 'data-src=', $new_outertext);
+                if ($alt != '') {
+                    $new_outertext = "<div class='img_wrap'>".$new_outertext."<div class='img_alt'>".$alt.'</div>'.'</div>';
+                }
+                $content = str_replace($outertext, $new_outertext, $content);
             }
-            $content = str_replace($outertext, $new_outertext, $content);
+            $post->content = $content;
         }
-        $post->content = $content;
 
         return $post;
     }
