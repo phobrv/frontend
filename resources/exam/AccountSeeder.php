@@ -21,7 +21,7 @@ class AccountSeeder extends Seeder
             'name' => 'SuperUser',
             'email' => 'superuser@gmail.com',
             'email_verified_at' => now(),
-            'password' => '$2y$10$ynqBiNVeQ1spa/.DtckXReVlLPE/tvOm5SMpgCwCNn9xaRvfhI7nO', // php1@3
+            'password' => '$2y$10$ynqBiNVeQ1spa/.DtckXReVlLPE/tvOm5SMpgCwCNn9xaRvfhI7nO',
             'remember_token' => Str::random(10),
         ];
         $user = User::create($data);
