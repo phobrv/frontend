@@ -5,7 +5,6 @@ namespace Phont\Frontend\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Phobrv\BrvCore\Repositories\OptionRepository;
-use Phobrv\BrvCore\Services\HandleMenuServices;
 use Phobrv\BrvCore\Services\OptionServices;
 use Phont\Frontend\Services\HandleDataPage;
 
@@ -16,7 +15,6 @@ class HomeController extends Controller
     protected $configs;
 
     public function __construct(
-        HandleMenuServices $handleMenuService,
         OptionServices $optionServices,
         OptionRepository $optionRepository,
         HandleDataPage $handleDataPage
