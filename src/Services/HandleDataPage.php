@@ -211,7 +211,7 @@ class HandleDataPage
                 if (isset($menu)) {
                     $data['breadcrumb'] = $this->commonServices->genBreadcrumbsFrontEnd(
                         [
-                            ['slug' => '#', 'name' => $menu['title']],
+                            ['slug' => $menu['slug'], 'name' => $menu['title']],
                             ['slug' => $data['post']->slug, 'name' => $data['post']->title],
                         ]
                     );
