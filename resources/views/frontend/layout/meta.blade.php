@@ -39,7 +39,8 @@ $title = !empty($data['meta']['meta_title']) ? $data['meta']['meta_title'] : (!e
 
 
 @if(!empty($data['meta']['meta_thumb']))
-<meta property="og:image" content="{{$data['meta']['meta_thumb'] ?? ''}}" />
+<meta property="og:image" content="{{$data['meta']['meta_thumb'] ?? ''}}"  />
+<meta property="og:image:alt" content="{{$title}}" />
 <meta property="twitter:image" content="{{$data['meta']['meta_thumb'] ?? ''}}">
 @endif
 
