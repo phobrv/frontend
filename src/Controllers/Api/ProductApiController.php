@@ -35,7 +35,6 @@ class ProductApiController extends Controller
     {
         $data = $request->all();
         $page_size = $data['size'] ?? 10;
-        $page = $data['page'] ?? 1;
         $term = $this->termRepository->find($data['term_id']);
         if ($term) {
             $posts = $term->posts()->where('type', 'product');

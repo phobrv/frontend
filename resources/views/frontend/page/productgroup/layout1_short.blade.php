@@ -1,4 +1,5 @@
-@if ($posts)
+@if (count($posts))
+
     <div id="grid_page" style="display: block">
         <div class="row g-5">
             @foreach ($posts as $p)
