@@ -23,7 +23,7 @@ class AutoCreateImageResize
             $arrayPath = explode('/', $pathInfo);
             $folderResize = $arrayPath[2];
             if (in_array($folderResize, $arrayFolderResize)) {
-                $storagePath = storage_path(str_replace('/storage', 'app/public', str_replace($folderResize, 'photos', $pathInfo)));
+                $storagePath = urldecode(storage_path(str_replace('/storage', 'app/public', str_replace($folderResize, 'photos', $pathInfo))));
                 if (is_file($storagePath) && getimagesize($storagePath)) {
                     $image = new ImageResize($storagePath);
                     $pathResize = str_replace('photos', $folderResize, $storagePath);
