@@ -59,16 +59,8 @@ class ProductApiController extends Controller
                 }
             }
         }
-        $count = 1000;
 
-        $out = [
-            'count' => $count,
-            'page_size' => $page_size,
-            'page' => $page,
-            'items' => $posts,
-        ];
-
-        return view('phont::frontend.page.productgroup.layout1_short', ['data' => $out])->render();
+        return view('phont::frontend.page.productgroup.layout1_short', ['posts' => $posts])->render();
     }
 
     public function quotePrice(Request $request)

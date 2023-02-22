@@ -209,10 +209,11 @@ if (typeof App == "undefined") {
                 });
         },
         init: function() {
+            if (document.getElementsByClassName("category_main").length == 0)
+                return;
+
             let Root = this;
-
             Root.reBuildPaginate();
-
             $(window).on("hashchange", function() {
                 if (window.location.hash) {
                     var page = window.location.hash.replace("#", "");

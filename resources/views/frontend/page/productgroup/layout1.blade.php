@@ -55,22 +55,18 @@
                 },
                 paginate_select: function() {
                     let Root = this
-                    $(document).on('click', '#paginate .item', function(event) {
-                        let page = this.dataset.page;
+                    $(document).on("click", ".pagination a", function(event) {
+                        event.preventDefault();
+                        var page = $(this).attr("href").split("page=")[1];
                         console.log(page)
-                        document.getElementById("page").value = page
-                        Root.getProductList()
+                        Root.getProductList(page)
                     })
                 },
-                getProductList: function() {
+                getProductList: function(page) {
                     let Root = this;
                     let order_select = document.getElementById("order_select").value
                     let size_select = document.getElementById("size_select").value
-                    let term_id = document.getElementById("term_id").value
-                    let page = 1
-                    if (document.getElementById("page")) {
-                        page = document.getElementById("page").value ?? 1
-                    }
+                    let term_id = document.getElementById("term_id").value ;
                     let data = {};
                     switch (order_select) {
                         case '0':
@@ -104,6 +100,7 @@
                         success: function(out) {
                             document.getElementById("product_list").innerHTML = out;
                             Root.resize_thumb();
+                            window.scrollTo(0, 0);
                         }
                     });
                 },
