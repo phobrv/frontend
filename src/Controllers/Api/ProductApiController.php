@@ -36,9 +36,21 @@ class ProductApiController extends Controller
         $data = $request->all();
         $page_size = $data['size'] ?? 10;
         $page = $data['page'] ?? 1;
-        $term = $this->termRepository->with('posts')->find($data['term_id']);
+        $term = $this->termRepository->find($data['term_id']);
         if ($term) {
-            $posts = $term->posts->where('type', 'product');
+            $posts = $term->posts()->where('type', 'product');
+
+            if ($data['sort']) {
+                switch ($data['order']) {
+                    case 'desc':
+                        $posts = $posts->orderByDesc($data['sort']);
+                        break;
+                    default:
+                        $posts = $posts->orderBy($data['sort']);
+                        break;
+                }
+            }
+            $posts = $posts->paginate($page_size);
             if ($posts) {
                 foreach ($posts as $key => $post) {
                     $meta = $post->meta;
@@ -47,18 +59,7 @@ class ProductApiController extends Controller
                 }
             }
         }
-        $count = $posts->count();
-        if ($data['sort']) {
-            switch ($data['order']) {
-                case 'desc':
-                    $posts = $posts->sortByDesc($data['sort']);
-                    break;
-                default:
-                    $posts = $posts->sortBy($data['sort']);
-                    break;
-            }
-        }
-        $posts = $posts->forPage($page, $page_size)->values()->all();
+        $count = 1000;
 
         $out = [
             'count' => $count,
