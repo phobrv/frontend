@@ -79,6 +79,7 @@ class FrontendServiceProvider extends ServiceProvider
         // Publishing assets.
         $this->publishes([
             __DIR__.'/../resources/assets/frontend' => resource_path('frontend'),
+            __DIR__.'/../resources/exam/app.php' => base_path('config/app.php'),
             __DIR__.'/../resources/exam/AppServiceProvider.php' => base_path('app/Providers/AppServiceProvider.php'),
             __DIR__.'/../resources/exam/.env.exam' => base_path('.env'),
             __DIR__.'/../resources/exam/elfinder.php' => base_path('config/elfinder.php'),
