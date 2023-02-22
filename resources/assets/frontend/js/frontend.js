@@ -2,7 +2,7 @@ if (typeof App == "undefined") {
     const App = {};
 
     App.Wow = {
-        init: function () {
+        init: function() {
             var wow = new WOW({
                 boxClass: "wow",
                 animateClass: "animate__animated",
@@ -15,20 +15,20 @@ if (typeof App == "undefined") {
     };
 
     App.ResizeFacebookComment = {
-        resize: function () {
+        resize: function() {
             if ($(".fb-comments iframe").length <= 0) return;
             var src = $(".fb-comments iframe").attr("src").split("width=");
             width = $(".fb-comments").parent().width();
 
             $(".fb-comments iframe").attr("src", src[0] + "width=" + width);
         },
-        init: function () {
+        init: function() {
             const Root = this;
             $(".fb-comments").attr(
                 "data-width",
                 $(".fb-comments").parent().width()
             );
-            $(window).on("resize", function () {
+            $(window).on("resize", function() {
                 Root.resize();
             });
         },
@@ -36,16 +36,16 @@ if (typeof App == "undefined") {
 
     App.MobileMenu = {
         mnav_panel: $("#nav-menu"),
-        init: function () {
+        init: function() {
             let Root = this;
-            $("body").on("click", "#nav-menu .dropdown", function () {
+            $("body").on("click", "#nav-menu .dropdown", function() {
                 $(this).find("ul.dropdown-menu").slideToggle("normal");
             });
-            $(".panel-overlay").click(function () {
+            $(".panel-overlay").click(function() {
                 Root.mnav_panel.toggleClass("opened");
                 $(this).removeClass("active");
             });
-            $("#showmenu").click(function () {
+            $("#showmenu").click(function() {
                 Root.mnav_panel.toggleClass("opened");
                 jQuery(".panel-overlay").toggleClass("active");
             });
@@ -57,7 +57,7 @@ if (typeof App == "undefined") {
             .querySelector("meta[property='fb:app_id']")
             .getAttribute("content"),
         zalo_chat_widget_lenght: $(".zalo-chat-widget").length,
-        loadFB: function () {
+        loadFB: function() {
             let Root = this;
             var js = document.createElement("script");
             js.src =
@@ -66,14 +66,14 @@ if (typeof App == "undefined") {
                 "&autoLogAppEvents=1";
             document.body.appendChild(js);
         },
-        loadZaloChat: function () {
+        loadZaloChat: function() {
             var js = document.createElement("script");
             js.src = "https://sp.zalo.me/plugins/sdk.js";
             document.body.appendChild(js);
         },
-        init: function () {
+        init: function() {
             const Root = this;
-            window.onscroll = function () {
+            window.onscroll = function() {
                 if ($(window).scrollTop() > window.innerHeight) {
                     Root.loadFB();
                     if (Root.zalo_chat_widget_lenght > 0) {
@@ -86,15 +86,15 @@ if (typeof App == "undefined") {
     };
 
     App.ScrollBtn = {
-        click: function () {
-            $("#bttop").on("click", function (e) {
+        click: function() {
+            $("#bttop").on("click", function(e) {
                 e.preventDefault(),
                     window.scrollTo({ top: 0, behavior: "smooth" });
             });
         },
-        scroll: function () {
+        scroll: function() {
             let App = this;
-            $(window).scroll(function () {
+            $(window).scroll(function() {
                 if ($(this).scrollTop() > 0) {
                     $("#bttop").fadeIn();
                     App.click();
@@ -104,7 +104,7 @@ if (typeof App == "undefined") {
                 }
             });
         },
-        init: function () {
+        init: function() {
             let App = this;
             App.click();
             App.scroll();
@@ -112,18 +112,18 @@ if (typeof App == "undefined") {
     };
 
     App.Pagination = {
-        reBuildPaginate: function () {
+        reBuildPaginate: function() {
             let Root = this;
-            var pagination = document.getElementsByClassName("pagination");
-            if (pagination.length > 0) {
-                for (var i = 0; i < pagination.length; i++) {
-                    Root.buildPaginate(pagination[i]);
-                }
-            }
+            // var pagination = document.getElementsByClassName("pagination");
+            // if (pagination.length > 0) {
+            //     for (var i = 0; i < pagination.length; i++) {
+            //         Root.buildPaginate(pagination[i]);
+            //     }
+            // }
             Root.thumbVideoResize();
             Root.thumbProductResize();
         },
-        buildPaginate: function (pagi) {
+        buildPaginate: function(pagi) {
             if (typeof pagi !== "undefined") {
                 var lis = pagi.getElementsByTagName("li");
                 var count_li = lis.length;
@@ -180,40 +180,40 @@ if (typeof App == "undefined") {
             }
         },
 
-        thumbVideoResize: function () {
+        thumbVideoResize: function() {
             if ($(".thumb-video").length == 0) return;
             $(".thumb-video").css("height", $(".thumb-video").width() * 0.565);
         },
-        thumbProductResize: function () {
+        thumbProductResize: function() {
             if ($(".box-product1 .thumb").length == 0) return;
             $(".box-product1 .thumb").css(
                 "height",
                 $(".box-product1 .thumb").width()
             );
         },
-        getData: function (page) {
+        getData: function(page) {
             let Root = this;
             $.ajax({
-                url: "?page=" + page,
-                type: "get",
-                datatype: "html",
-            })
-                .done(function (data) {
+                    url: "?page=" + page,
+                    type: "get",
+                    datatype: "html",
+                })
+                .done(function(data) {
                     $(".category_main").empty().html(data);
                     location.hash = page;
                     Root.reBuildPaginate();
                     window.scrollTo(0, 0);
                 })
-                .fail(function (jqXHR, ajaxOptions, thrownError) {
+                .fail(function(jqXHR, ajaxOptions, thrownError) {
                     alert("No response from server");
                 });
         },
-        init: function () {
+        init: function() {
             let Root = this;
 
             Root.reBuildPaginate();
 
-            $(window).on("hashchange", function () {
+            $(window).on("hashchange", function() {
                 if (window.location.hash) {
                     var page = window.location.hash.replace("#", "");
                     if (page == Number.NaN || page <= 0) {
@@ -224,7 +224,7 @@ if (typeof App == "undefined") {
                 }
             });
 
-            $(document).on("click", ".pagination a", function (event) {
+            $(document).on("click", ".pagination a", function(event) {
                 event.preventDefault();
 
                 $("li").removeClass("active");
@@ -239,17 +239,17 @@ if (typeof App == "undefined") {
     };
 
     App.SlideHome = {
-        resizePC: function () {
+        resizePC: function() {
             var ratio = 0.35;
             var width = $(window).width();
             $("#slidePc .swiper-slide").css("height", width * ratio);
         },
-        resizeMobile: function () {
+        resizeMobile: function() {
             var ratio = 0.65;
             var width = $(window).width();
             $("#slideMobile .swiper-slide").css("height", width * ratio);
         },
-        initPC: function () {
+        initPC: function() {
             if ($("#slidePc .swiper-slide").length < 0) return;
             let Root = this;
             Root.resizePC();
@@ -272,7 +272,7 @@ if (typeof App == "undefined") {
                 },
             });
         },
-        initMobile: function () {
+        initMobile: function() {
             if ($("#slideMobile .swiper-slide").length < 0) return;
             let Root = this;
             Root.resizeMobile();
@@ -293,7 +293,7 @@ if (typeof App == "undefined") {
                 },
             });
         },
-        init: function () {
+        init: function() {
             let Root = this;
             Root.initPC();
             Root.initMobile();
@@ -304,10 +304,10 @@ if (typeof App == "undefined") {
         boxClassTop: $("#submenuTop"),
         boxClass: $(".sidebar__submenu"),
         fixPoint: 0,
-        init: function () {
+        init: function() {
             let Root = this;
             if ($(Root.boxClassTop).length > 0) {
-                $(window).bind("scroll", function () {
+                $(window).bind("scroll", function() {
                     var eTop = $(Root.boxClassTop).offset().top;
                     var curTop = eTop - $(window).scrollTop();
                     // console.log('eTop ' + eTop + ' curTop ' + curTop + ' w ' + $(window).scrollTop())
@@ -323,8 +323,8 @@ if (typeof App == "undefined") {
     };
 
     App.FormSearchSort = {
-        init: function () {
-            $("header .search-sort .btn-sch").on("click", function () {
+        init: function() {
+            $("header .search-sort .btn-sch").on("click", function() {
                 if (typeof isSearch == "undefined") isSearch = false;
                 isSearch = !isSearch;
                 if (isSearch) {
@@ -341,17 +341,17 @@ if (typeof App == "undefined") {
     };
 
     App.Product = {
-        goToCart: function () {
+        goToCart: function() {
             let Root = this;
-            $("#cart").on("click", function (e) {
+            $("#cart").on("click", function(e) {
                 e.preventDefault();
                 window.location.href = "/checkout";
             });
         },
 
-        addProduct: function () {
+        addProduct: function() {
             let Root = this;
-            $(".btn_add_to_cart").on("click", function (event) {
+            $(".btn_add_to_cart").on("click", function(event) {
                 event.preventDefault();
                 var id = this.dataset.id;
                 var qty = this.dataset.qty;
@@ -366,14 +366,13 @@ if (typeof App == "undefined") {
                     url: "/api/addProduct",
                     type: "POST",
                     data: { id: id, qty: qty },
-                    success: function (output) {
+                    success: function(output) {
                         $("#product" + id).removeClass("running");
                         if (checkout != 1) {
                             document.getElementById("modalCartArea").innerHTML =
                                 output.modalCart;
                             const modalCart = new bootstrap.Modal(
-                                "#modalCart",
-                                {
+                                "#modalCart", {
                                     keyboard: false,
                                 }
                             );
@@ -386,7 +385,7 @@ if (typeof App == "undefined") {
                 });
             });
         },
-        setCartCount: function () {
+        setCartCount: function() {
             if ($("#cart_count").length == 0) return;
             let Root = this;
             $.ajax({
@@ -397,17 +396,17 @@ if (typeof App == "undefined") {
                 },
                 url: "/api/takeCartCount",
                 type: "get",
-                success: function (output) {
+                success: function(output) {
                     Root.changeCartCount(output);
                 },
             });
         },
-        changeCartCount: function (count) {
+        changeCartCount: function(count) {
             $("#cart_count").html(count);
         },
-        removeCart: function () {
+        removeCart: function() {
             let Root = this;
-            $(".cart__remove").on("click", function (e) {
+            $(".cart__remove").on("click", function(e) {
                 e.preventDefault();
                 var rowid = this.dataset.rowid;
                 $.ajax({
@@ -419,7 +418,7 @@ if (typeof App == "undefined") {
                     url: "/api/removeCart",
                     type: "POST",
                     data: { rowId: rowid },
-                    success: function (output) {
+                    success: function(output) {
                         Root.changeCartCount(output["cartCount"]);
                         $("#cart_table").html(output["cart_table"]);
                         Root.init();
@@ -427,9 +426,9 @@ if (typeof App == "undefined") {
                 });
             });
         },
-        changeItemNumber: function () {
+        changeItemNumber: function() {
             let Root = this;
-            $(".btn_change_cart_item").on("click", function (e) {
+            $(".btn_change_cart_item").on("click", function(e) {
                 e.preventDefault();
                 var rowid = this.dataset.rowid;
                 var type = this.dataset.type;
@@ -443,7 +442,7 @@ if (typeof App == "undefined") {
                     url: "/api/changeItemNumber",
                     type: "POST",
                     data: { rowId: rowid, action: type },
-                    success: function (output) {
+                    success: function(output) {
                         Root.changeCartCount(output["cartCount"]);
                         $("#cart_table").html(output["cart_table"]);
                         Root.init();
@@ -452,17 +451,17 @@ if (typeof App == "undefined") {
                 this.removeAttribute("disabled", "");
             });
         },
-        changeProductNumber: function () {
+        changeProductNumber: function() {
             let Root = this;
             var add_only = document.getElementsByClassName("add_only")[0];
             var and_checkout =
                 document.getElementsByClassName("and_checkout")[0];
-            $("#product_number .minus").on("click", function (e) {
+            $("#product_number .minus").on("click", function(e) {
                 e.preventDefault();
                 let number_p = parseInt(
                     document
-                        .getElementById("product_number_value")
-                        .innerHTML.trim()
+                    .getElementById("product_number_value")
+                    .innerHTML.trim()
                 );
                 if (number_p > 1) number_p = number_p - 1;
                 document.getElementById("product_number_value").innerHTML =
@@ -470,12 +469,12 @@ if (typeof App == "undefined") {
                 add_only.dataset.qty = number_p;
                 and_checkout.dataset.qty = number_p;
             });
-            $("#product_number .plus").on("click", function (e) {
+            $("#product_number .plus").on("click", function(e) {
                 e.preventDefault();
                 let number_p = parseInt(
                     document
-                        .getElementById("product_number_value")
-                        .innerHTML.trim()
+                    .getElementById("product_number_value")
+                    .innerHTML.trim()
                 );
                 number_p = number_p + 1;
                 document.getElementById("product_number_value").innerHTML =
@@ -484,7 +483,7 @@ if (typeof App == "undefined") {
                 and_checkout.dataset.qty = number_p;
             });
         },
-        init: function () {
+        init: function() {
             App.Product.setCartCount();
             App.Product.addProduct();
             App.Product.goToCart();
@@ -494,47 +493,47 @@ if (typeof App == "undefined") {
         },
     };
     App.ProductShow = {
-        resize_thumb: function () {
+        resize_thumb: function() {
             $(".thumb").css("height", $(".thumb").width());
         },
-        layout_select: function () {
-            $("#list_layout").on("click", function (e) {
+        layout_select: function() {
+            $("#list_layout").on("click", function(e) {
                 $("#grid_layout").removeClass("active");
                 $("#grid_page").css("display", "none");
                 $("#list_layout").addClass("active");
                 $("#list_page").css("display", "block");
             });
         },
-        grid_select: function () {
-            $("#grid_layout").on("click", function (e) {
+        grid_select: function() {
+            $("#grid_layout").on("click", function(e) {
                 $("#list_layout").removeClass("active");
                 $("#grid_page").css("display", "block");
                 $("#grid_layout").addClass("active");
                 $("#list_page").css("display", "none");
             });
         },
-        order_select: function () {
+        order_select: function() {
             let Root = this;
-            $("#order_select").on("change", function (e) {
+            $("#order_select").on("change", function(e) {
                 Root.getProductList();
             });
         },
-        size_select: function () {
+        size_select: function() {
             let Root = this;
-            $("#size_select").on("change", function (e) {
+            $("#size_select").on("change", function(e) {
                 Root.getProductList();
             });
         },
-        paginate_select: function () {
+        paginate_select: function() {
             let Root = this;
-            $(document).on("click", "#paginate .item", function (event) {
+            $(document).on("click", "#paginate .item", function(event) {
                 let page = this.dataset.page;
                 console.log(page);
                 document.getElementById("page").value = page;
                 Root.getProductList();
             });
         },
-        getProductList: function () {
+        getProductList: function() {
             let Root = this;
             if (document.getElementById("order_select") == null) return;
             let order_select = document.getElementById("order_select").value;
@@ -576,14 +575,14 @@ if (typeof App == "undefined") {
                 url: "/api/getProduct",
                 type: "post",
                 data: data,
-                success: function (out) {
+                success: function(out) {
                     document.getElementById("product_list").innerHTML = out;
                     Root.resize_thumb();
                     App.Product.addProduct();
                 },
             });
         },
-        init: function () {
+        init: function() {
             let Root = this;
             Root.getProductList();
             Root.layout_select();
@@ -595,7 +594,7 @@ if (typeof App == "undefined") {
     };
     App.Checkout = {
         self: $("#checkout_form"),
-        alertError: function () {
+        alertError: function() {
             $("#checkout_form")
                 .prepend(`<div class="alert alert-danger d-flex align-items-center" role="alert">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -607,7 +606,7 @@ if (typeof App == "undefined") {
                 </div>
                 </div>`);
         },
-        submit: function () {
+        submit: function() {
             let Root = this;
 
             $.ajax({
@@ -621,7 +620,7 @@ if (typeof App == "undefined") {
                 url: "/api/placeOrder",
                 data: Root.self.serialize(),
                 dataType: "json",
-                success: function (res) {
+                success: function(res) {
                     console.log(res);
                     if (res.code == 1) {
                         location.href = res.data.redirect;
@@ -631,8 +630,7 @@ if (typeof App == "undefined") {
                         $("#checkoutBtn span").remove();
                         $("#checkoutBtn").attr("disabled", null);
                         Root.alertFeedback(res.data);
-                        $([document.documentElement, document.body]).animate(
-                            {
+                        $([document.documentElement, document.body]).animate({
                                 scrollTop: $(".is-invalid")[0].offsetTop + 69,
                             },
                             600
@@ -641,14 +639,14 @@ if (typeof App == "undefined") {
                         Root.alertError();
                     }
                 },
-                error: function () {
+                error: function() {
                     Root.alertError();
                 },
             });
         },
-        init: function () {
+        init: function() {
             const Root = this;
-            $("#checkout_form").on("submit", function (e) {
+            $("#checkout_form").on("submit", function(e) {
                 e.preventDefault();
                 $("#checkoutBtn").prepend(
                     '<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>'
@@ -660,9 +658,9 @@ if (typeof App == "undefined") {
     };
 
     App.Rating = {
-        vote: function () {
+        vote: function() {
             let App = this;
-            $("#form-rating input").click(function (e) {
+            $("#form-rating input").click(function(e) {
                 e.preventDefault();
                 var form = $("#form-rating");
                 var url = form.attr("action");
@@ -679,10 +677,10 @@ if (typeof App == "undefined") {
                     processData: false,
                     data: data,
                     type: "get",
-                    success: function (out) {
+                    success: function(out) {
                         $("#rating-area").html("");
                         $("#rating-area").html(out);
-                        setTimeout(function () {
+                        setTimeout(function() {
                             $("#confirm").remove();
                         }, 2000);
                         App.vote();
@@ -690,13 +688,13 @@ if (typeof App == "undefined") {
                 });
             });
         },
-        init: function () {
+        init: function() {
             App.Rating.vote();
         },
     };
     App.Comment = {
         post_id: $("#post_id").val(),
-        loadComment: function () {
+        loadComment: function() {
             let Root = this;
             if ($("#commentList").length > 0) {
                 $.ajax({
@@ -708,15 +706,15 @@ if (typeof App == "undefined") {
                     url: "/api/getComment",
                     type: "POST",
                     data: { post_id: Root.post_id },
-                    success: function (output) {
+                    success: function(output) {
                         $("#commentList").html(output);
                         Root.initAction();
                     },
                 });
             }
         },
-        submit: function () {
-            $("#btn_cmnt").click(function () {
+        submit: function() {
+            $("#btn_cmnt").click(function() {
                 var post_id = $("#post_id").val();
                 var parent = $("#parent").val();
                 var name = $("#name").val();
@@ -741,7 +739,7 @@ if (typeof App == "undefined") {
                         url: "/api/createComment",
                         type: "POST",
                         data: { data: data },
-                        success: function (output) {
+                        success: function(output) {
                             console.log(output);
                             $("#name").val("");
                             $("#phone").val("");
@@ -751,15 +749,15 @@ if (typeof App == "undefined") {
                 }
             });
         },
-        clear: function () {
-            $("#close_cmt").click(function () {
+        clear: function() {
+            $("#close_cmt").click(function() {
                 $("#close_cmt").css("display", "none");
                 $("#commentBody #parent").val(0);
                 $("#commentBody").insertAfter("#commentList");
             });
         },
-        reply: function () {
-            $(".comment-reply-link").on("click", function (e) {
+        reply: function() {
+            $(".comment-reply-link").on("click", function(e) {
                 var commentID = $(this).data("commentid");
                 console.log("commentID " + commentID);
                 $("#commentBody #parent").val(commentID);
@@ -767,21 +765,21 @@ if (typeof App == "undefined") {
                 $("#close_cmt").css("display", "block");
             });
         },
-        initAction: function () {
+        initAction: function() {
             let Root = this;
             Root.submit();
             Root.clear();
             Root.reply();
         },
-        init: function () {
+        init: function() {
             let Root = this;
             Root.loadComment();
         },
     };
 
     App.TranslateGoogle = {
-        init: function () {
-            $(".translation-links a").click(function () {
+        init: function() {
+            $(".translation-links a").click(function() {
                 var lang = $(this).data("lang");
                 var $frame = $(".goog-te-menu-frame:first");
                 // if (!$frame.size()) {
@@ -802,8 +800,8 @@ if (typeof App == "undefined") {
     };
 
     App.PostSubmenuToggle = {
-        init: function () {
-            $("#toggle_box").on("click", function (e) {
+        init: function() {
+            $("#toggle_box").on("click", function(e) {
                 e.preventDefault();
                 $(".post__menu").toggle();
                 const display =
@@ -820,25 +818,24 @@ if (typeof App == "undefined") {
     };
 
     App.Video = {
-        popupShow: function () {
+        popupShow: function() {
             $(".video_item").magnificPopup({
                 type: "iframe",
                 iframe: {
-                    markup:
-                        '<div class="mfp-iframe-scaler">' +
+                    markup: '<div class="mfp-iframe-scaler">' +
                         '<div class="mfp-close"></div>' +
                         '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
                         '<div class="mfp-title">Some caption</div>' +
                         "</div>",
                 },
                 callbacks: {
-                    markupParse: function (template, values, item) {
+                    markupParse: function(template, values, item) {
                         values.title = item.el.attr("title");
                     },
                 },
             });
         },
-        init: function () {
+        init: function() {
             let Root = this;
             Root.popupShow();
         },
@@ -908,7 +905,7 @@ if (typeof App == "undefined") {
             Root.modalSuccess_mess.innerHTML = Root.messSuccess;
             Root.modalSuccess.show();
             $(`#${Root.form_id} button[type=submit]`).prop("disabled", false);
-            setTimeout(function () {
+            setTimeout(function() {
                 Root.modalSuccess.hide();
             }, 2500);
         },
@@ -923,28 +920,28 @@ if (typeof App == "undefined") {
                 url: Root.url,
                 type: "POST",
                 data: data,
-                success: function (output) {
+                success: function(output) {
                     Root.handleSuccess();
                 },
-            }).fail(function (jqXHR, textStatus, error) {
+            }).fail(function(jqXHR, textStatus, error) {
                 console.log("You are bot!!!!!!");
             });
         },
         init() {
             let Root = this;
-            $(document).on("click", Root.btnReceivedCalss, function (e) {
+            $(document).on("click", Root.btnReceivedCalss, function(e) {
                 e.preventDefault();
                 var key = this.dataset.key;
                 var form_id = this.dataset.form;
                 Root.form_id = form_id;
                 if (Root.validate()) {
                     $(`#${form_id} button[type=submit]`).prop("disabled", true);
-                    grecaptcha.ready(function () {
+                    grecaptcha.ready(function() {
                         grecaptcha
                             .execute(key, {
                                 action: "submit",
                             })
-                            .then(function (token) {
+                            .then(function(token) {
                                 var data = $(`#${form_id}`).serializeArray();
                                 var captcha = {
                                     name: "g-recaptcha-response",
