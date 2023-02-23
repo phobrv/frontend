@@ -16,7 +16,7 @@ class AutoCreateImageResize
      */
     public function handle(Request $request, Closure $next)
     {
-        $arrayFolderResize = ['rs100',  'rs200', 'rs300', 'rs400', 'rs500', 'rs600'];
+        $arrayFolderResize = ['rs100',  'rs200', 'rs300', 'rs400', 'rs500', 'rs600', 'rs800'];
         $pathInfo = $request->getPathInfo();
         // dd($pathInfo);
         if (str_contains($pathInfo, '/storage/rs')) {

@@ -62,7 +62,7 @@ class HandleDataPage
     public function handlePostPage($request, $slug)
     {
         $data = $request->all();
-        $data['post'] = $this->postRepository->with('terms')->orderBy('created_at', 'desc')->findWhere(['slug' => $slug])->first();
+        $data['post'] = $this->postRepository->with(['terms', 'postMetas'])->orderBy('created_at', 'desc')->findWhere(['slug' => $slug])->first();
         if (! isset($data['post']) || $data['post']->subtype == 'home') {
             return $data;
         }
