@@ -12,42 +12,38 @@ class ReceivedDataServices
 
     protected $content_telegram = '';
 
+    protected $arrTitles = [
+        'name' => 'Tên',
+        'phone' => 'SDT',
+        'add' => 'Add',
+        'note' => 'Note',
+        'email' => 'Email',
+        'title' => 'Title',
+        'content' => 'Nội dung',
+    ];
+
     public function handle($data)
     {
-        $this->content = 'Time:  '.date('H:i:s d-m-Y');
-        switch ($data['type']) {
-            case 'contact':
-                $this->content_telegram = '<b>'.config('app.name')." thông báo liên hệ mới </b>\n"
-                    .'<b>Time:</b>  '.date('d-m-Y H:i:s')."\n";
-                $this->title = 'Mail thông báo liên hệ mới';
-                break;
-        }
+        $this->received['type'] = $data['type'];
+        $this->content = 'Time: '.date('H:i:s d-m-Y');
+        $data['title'] = $this->initTitle($data);
+        $this->initContentTelegram($data['title']);
 
-        $receivedData = ['type' => $data['type'] ?? null];
+        $arrayMeta = [];
 
-        $updateData = [
-            ['name', 'Tên'],
-            ['phone', 'SDT'],
-            ['add', 'Add'],
-            ['note', 'Note'],
-            ['email', 'Email'],
-            ['title', 'Title'],
-            ['content', 'Nội dung'],
-        ];
-
-        foreach ($updateData as $dataPoint) {
-            [$field, $label] = $dataPoint;
-            if (! empty($data[$field])) {
-                $this->updateData($field, $data[$field], $label);
+        foreach ($data as $key => $value) {
+            if (str_starts_with($key, 'meta_')) {
+                $newKey = substr($key, strlen('meta_'));
+                $arrayMeta[$newKey] = $value;
+            } elseif (isset($this->arrTitles[$key]) && ! empty($value)) {
+                $this->updateData($key, $value, $this->arrTitles[$key]);
             }
         }
 
-        if (! empty($data['number'])) {
-            $data['arrayMeta'] = ['number' => $data['number']];
-        }
-        $data['received'] = $receivedData;
-        $data['title'] = $this->title;
-        $data['content_telegram'] = $this->content_telegram;
+        $data['received'] = $this->received;
+        $data['title'] = $this->title ?? null;
+        $data['content_telegram'] = $this->content_telegram ?? null;
+        $data['arrayMeta'] = $arrayMeta;
 
         return $data;
     }
@@ -57,5 +53,32 @@ class ReceivedDataServices
         $this->received[$key] = $value;
         $this->content .= '<br>'.$prefix.': '.$value;
         $this->content_telegram .= '<b>'.$prefix.':</b> '.$value."\n";
+    }
+
+    private function initTitle($data)
+    {
+        if (empty($data['title'])) {
+            if ($data['type'] == 'contact') {
+                $title = 'Mail thông báo liên hệ mới';
+            } else {
+                $title = 'Thông báo mới';
+            }
+        } else {
+            $title = $data['title'];
+        }
+
+        return $title;
+    }
+
+    private function initContentTelegram($title)
+    {
+        return sprintf(
+            '<b>%s $s </b>%s<b>Time:</b> %s%s',
+            config('app.name'),
+            $title,
+            PHP_EOL,
+            date('d-m-Y H:i:s'),
+            PHP_EOL
+        );
     }
 }

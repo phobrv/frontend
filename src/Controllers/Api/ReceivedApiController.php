@@ -34,13 +34,19 @@ class ReceivedApiController extends Controller
 
     public function received(Request $request)
     {
-        $data = $request->all();
         if ($this->configs['recaptcha_active'] == 1) {
-            $validator = $request->validate([
+            $request->validate([
                 'g-recaptcha-response' => 'required|recaptcha:0.5',
             ]);
         }
+
+        $request->validate([
+            'type' => 'required',
+        ]);
+
+        $data = $request->all();
         $data = $this->receivedService->handle($data);
+        // return response()->json($data);
         $receive = $this->receiveDataRepository->updateOrcreate($data['received']);
 
         if (isset($data['arrayMeta'])) {
