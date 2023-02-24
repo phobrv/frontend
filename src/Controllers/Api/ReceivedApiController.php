@@ -52,8 +52,8 @@ class ReceivedApiController extends Controller
         }
         $data['subject'] = config('app.name').' report #'.$receive->id;
         $data['tos'] = $this->userRepository->getArrayMailReport();
-        $this->notificationService->sentNotification($data, $this->configs);
+        $res = $this->notificationService->sentNotification($data, $this->configs);
 
-        return response()->json('ok');
+        return response()->json($res);
     }
 }

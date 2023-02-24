@@ -43,6 +43,7 @@ class ReceivedDataServices
 
         $data['received'] = $this->received;
         $data['title'] = $this->title ?? null;
+        $data['content'] = $this->content;
         $data['content_telegram'] = $this->content_telegram ?? null;
         $data['arrayMeta'] = $arrayMeta;
 
