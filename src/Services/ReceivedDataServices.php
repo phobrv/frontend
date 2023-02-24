@@ -35,6 +35,7 @@ class ReceivedDataServices
             if (str_starts_with($key, 'meta_')) {
                 $newKey = substr($key, strlen('meta_'));
                 $arrayMeta[$newKey] = $value;
+                $this->updateMetaData($newKey, $value);
             } elseif (isset($this->arrTitles[$key]) && ! empty($value)) {
                 $this->updateData($key, $value, $this->arrTitles[$key]);
             }
@@ -46,6 +47,13 @@ class ReceivedDataServices
         $data['arrayMeta'] = $arrayMeta;
 
         return $data;
+    }
+
+    private function updateMetaData($key, $value)
+    {
+        $prefix = config('brvreceive.metaTitle')[$key] ?? $key;
+        $this->content .= '<br>'.$prefix.': '.$value;
+        $this->content_telegram .= '<b>'.$prefix.':</b> '.$value."\n";
     }
 
     private function updateData($key, $value, $prefix)
@@ -72,13 +80,13 @@ class ReceivedDataServices
 
     private function initContentTelegram($title)
     {
-        return sprintf(
-            '<b>%s $s </b>%s<b>Time:</b> %s%s',
+        $this->content_telegram = sprintf(
+            '<b>%s %s </b>%s<b>Time:</b> %s%s',
             config('app.name'),
             $title,
-            PHP_EOL,
+            "\n",
             date('d-m-Y H:i:s'),
-            PHP_EOL
+            "\n"
         );
     }
 }

@@ -46,13 +46,10 @@ class ReceivedApiController extends Controller
 
         $data = $request->all();
         $data = $this->receivedService->handle($data);
-        // return response()->json($data);
         $receive = $this->receiveDataRepository->updateOrcreate($data['received']);
-
         if (isset($data['arrayMeta'])) {
             $this->receiveDataRepository->insertMeta($receive, $data['arrayMeta']);
         }
-
         $data['subject'] = config('app.name').' report #'.$receive->id;
         $data['tos'] = $this->userRepository->getArrayMailReport();
         $this->notificationService->sentNotification($data, $this->configs);
