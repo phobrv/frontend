@@ -21,22 +21,22 @@ mix
         processCssUrls: false,
     });
 
-// mix.combine(
-//     [
-//         "resources/frontend/js/jquery-3.6.0.min.js",
-//         "resources/frontend/js/lazysizes.min.js",
-//         "resources/frontend/bootstrap5/js/bootstrap.bundle.min.js",
-//         "resources/frontend/js/jquery.barrating.min.js",
-//         "resources/frontend/js/smooth-scroll.polyfills.min.js",
-//         "resources/frontend/magnific/jquery.magnific-popup.js",
-//         "resources/frontend/swiper/swiper-bundle.min.js",
-//         "resources/frontend/js/wow.min.js",
-//         "resources/frontend/js/frontend.js",
-//     ],
-//     "public/js/frontend.js"
-// ).options({
-//     processCssUrls: false,
-// });
+    // mix.combine(
+    //     [
+    //         "resources/frontend/js/jquery-3.6.0.min.js",
+    //         "resources/frontend/responsively-lazy/responsivelyLazy.min.js",
+    //         "resources/frontend/bootstrap5/js/bootstrap.bundle.min.js",
+    //         "resources/frontend/js/jquery.barrating.min.js",
+    //         "resources/frontend/js/smooth-scroll.polyfills.min.js",
+    //         "resources/frontend/magnific/jquery.magnific-popup.js",
+    //         "resources/frontend/swiper/swiper-bundle.min.js",
+    //         "resources/frontend/js/wow.min.js",
+    //         "resources/frontend/js/frontend.js",
+    //     ],
+    //     "public/js/frontend.js"
+    // ).options({
+    //     processCssUrls: false,
+    // });
 
 //Chỉ dùng trên bản local
 // mix
