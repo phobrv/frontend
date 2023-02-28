@@ -12,6 +12,7 @@ mkdir storage/app/public/photos/shares
 echo "------------Install brvcore and frontend"
 composer require phobrv/brvcore  dev-main 
 composer require phont/frontend  dev-main 
+composer require barryvdh/laravel-debugbar --dev
 echo "------------Run composer udpate"
 php artisan jetstream:install livewire
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
