@@ -7,6 +7,6 @@
     $rs600 = str_replace("photos","rs600",$source);
     $rs800 = str_replace("photos","rs800",$source);
 @endphp
-<img class="responsively-lazy" src="{{$rs100}}"
+<img class="responsively-lazy {{$class ?? ''}}" src="{{$rs100}}"
    data-srcset="{{$rs200}} 200w, {{$rs300}} 300w, {{$rs400}} 400w, {{$rs500}} 500w, {{$rs600}} 600w, {{$rs800}} 800w"
-   srcset="{{$rs100}}" />
+   srcset="{{$rs100}}" alt="{{$alt ?? ''}}" title="{{$alt ?? ''}}" />
