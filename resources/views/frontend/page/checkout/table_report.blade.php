@@ -12,7 +12,7 @@
 		@foreach ($data['cart'] as $p)
 		@php $sum += $p->price * $p->qty;@endphp
 		<tr style="border:1px solid #FAFAFA;padding: 8px;">
-			<td  style="padding:6px; border:1px solid #FAFAFA;">{{ $p->name ?? '' }}</td>
+			<td  style="padding:6px; border:1px solid #FAFAFA;">{{ $p->name ?? '' }} ({{$p->options['option'] ?? ''}}) </td>
 			<td style="padding:6px; border:1px solid #FAFAFA;">
 				{{ number_format($p->price,0,',','.' ) ?? '' }}đ
 			</td>

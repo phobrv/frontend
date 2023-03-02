@@ -356,6 +356,7 @@ if (typeof App == "undefined") {
                 event.preventDefault();
                 var id = this.dataset.id;
                 var qty = this.dataset.qty;
+                var option = this.dataset.option;
                 var checkout = this.dataset.checkout;
                 $("#product" + id).addClass("running");
                 $.ajax({
@@ -366,7 +367,7 @@ if (typeof App == "undefined") {
                     },
                     url: "/api/addProduct",
                     type: "POST",
-                    data: { id: id, qty: qty },
+                    data: { id: id, qty: qty, option: option },
                     success: function(output) {
                         $("#product" + id).removeClass("running");
                         if (checkout != 1) {

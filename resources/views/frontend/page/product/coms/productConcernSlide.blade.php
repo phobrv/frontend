@@ -4,7 +4,7 @@
             @if($loop->index > 2)
             <div class="swiper-slide">
                <div class="item">
-                    @include('phont::frontend.page.products.coms.boxProduct3', ['p' => $p])
+                    @include('phont::frontend.page.productgroup.coms.boxProduct3', ['p' => $p])
                </div>
             </div>
             @endif

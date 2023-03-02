@@ -13,7 +13,7 @@
 			<img src="{{$p->options['img'] ?? asset('img/no_img.png')}}" width="75" >
 		</td>
 		<td  class="pt-3 ps-2 pe-2 pb-3 name" width="280">
-			<span class="text-blue" >{{$p->name}}</span>
+			<span class="text-blue" >{{$p->name}} ({{$p->options['option'] ?? ''}})</span>
 		</td>
 		<td  class="hidden-sm-down" width="100">
 			<span class="font15 text-bold">{{number_format($p->price)}} đ</span>
