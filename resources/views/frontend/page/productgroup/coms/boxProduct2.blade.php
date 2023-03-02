@@ -1,7 +1,7 @@
 <div class="box-product2 z-depth-2 item_hover_effect">
 	<div class="thumb">
 		<a href="{{route('level1',['slug'=>$p->slug])}}">
-			<img data-src="{{!empty($p->thumb) ? $p->thumb : asset('img/no_img.png')}}" class="lazyload img_cover" alt="{{$p->title}}">
+			@include('phont::frontend.components.img',['source'=>$p->thumb ?? '','class'=>'img_cover','alt'=> $p->title ?? '','width'=>'250','height'=>'185'])
 			<div class="over">
                 <button>Xem chi tiết</button>
             </div>

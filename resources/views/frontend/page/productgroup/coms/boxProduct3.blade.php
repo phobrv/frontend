@@ -1,7 +1,7 @@
 <div class="boxProduct3">
     <div class="thumb">
         <a href="{{ route('level1', ['slug' => $p->slug]) }}">
-            <img data-src="{{ $p->thumb300 ?? '' }}" alt="{{ $p->title }}" class="lazyload img_cover">
+            @include('phont::frontend.components.img',['source'=>$p->thumb ?? '','class'=>'img_cover','alt'=> $p->title ?? '','width'=>'250','height'=>'185'])
             <div class="over">
                 <button>Xem chi tiết</button>
             </div>

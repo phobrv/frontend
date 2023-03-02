@@ -3,7 +3,7 @@
     <div id="grid_page" style="display: block">
         <div class="row g-5">
             @foreach ($posts as $p)
-                <div class="col-6 col-lg-4">
+                <div class="col-6 col-lg-3">
                     @include('phont::frontend.page.productgroup.coms.boxProduct3', ['p' => $p])
                 </div>
             @endforeach
