@@ -6,10 +6,10 @@
         <input type="hidden" name="title" value="Đăng ký support">
         
         <div class="form-group mb-3">
-            <input class="form-control" type="text" name="name" placeholder="Name">
+            <input class="form-control" type="text" name="name" required placeholder="Name">
         </div>
         <div class="form-group mb-3">
-            <input  class="form-control" type="text" name="email" placeholder="Email">
+            <input  class="form-control" type="text" name="email" required placeholder="Email">
         </div>
         <div class="form-group mb-3">
             <input  class="form-control" type="text" name="meta_info" placeholder="Meta info">

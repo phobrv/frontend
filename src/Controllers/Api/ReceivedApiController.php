@@ -54,6 +54,6 @@ class ReceivedApiController extends Controller
         $data['tos'] = $this->userRepository->getArrayMailReport();
         $res = $this->notificationService->sentNotification($data, $this->configs);
 
-        return response()->json($res);
+        return response()->json('ok');
     }
 }
