@@ -4,7 +4,8 @@
          @foreach ($data['gallery'] as $p)
             <div class="swiper-slide">
                <div class="thumb text-center">
-                  <img src="{{$p}}"  style="height: 100%; width:auto;"/>
+                  @include('phont::frontend.components.img',['source'=>$p ?? '','class'=>'img_cover','alt'=> 'product img','width'=>'250','height'=>'185'])
+
                </div>
             </div>
          @endforeach
@@ -19,7 +20,7 @@
          @foreach ($data['gallery'] as $p)
             <div class="swiper-slide">
               <div class="thumb">
-               <img src="{{$p}}"  class="img_cover"/>
+               @include('phont::frontend.components.img',['source'=>$p ?? '','class'=>'img_cover','alt'=> 'product img','width'=>'250','height'=>'185'])
               </div>
             </div>
          @endforeach

@@ -6,7 +6,7 @@
                 <li class="mb-3">
                     <a href="{{ route('level1', ['slug' => $p->slug]) }}">
                         <div class="mb-2">
-                            <img data-src="{{ $p->thumb }}" class="lazyload img_cover" alt="">
+                            @include('phont::frontend.components.img',['source'=>$p->thumb ?? '','class'=>'img_cover','alt'=> $p->title ?? '','width'=>'250','height'=>'185'])
                         </div>
                         <h3>{{ $p->title ?? '' }}</h3>
                         <div class="price">
