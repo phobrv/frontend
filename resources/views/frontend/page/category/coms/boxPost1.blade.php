@@ -3,7 +3,7 @@
 		<div class="col-md-8">
 			<a href="{{route('level1',['slug'=>$p->slug])}}">
 				<div class="thumb">
-					<img data-src="{{ !empty($p->thumb) ? $p->thumb : asset('img/no_img.png') }}" class="lazyload img_cover" alt="{{$p->title}}">
+					@include('phont::frontend.components.img',['source'=>$p->thumb ?? '','class'=>'img_cover','alt'=> $p->title ?? '','width'=>'250','height'=>'185'])
 				</div>
 			</a>
 		</div>

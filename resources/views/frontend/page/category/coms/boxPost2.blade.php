@@ -1,7 +1,7 @@
 <div class="boxPost2 pt-3 pb-3">
     <a href="{{ route('level1', ['slug' => $p->slug]) }}">
         <div class="thumb">
-            <img  data-src="{{ $p->thumb200  }}" class="lazyload img_cover" alt="{{ $p->title }}">
+            @include('phont::frontend.components.img',['source'=>$p->thumb ?? '','class'=>'img_cover','alt'=> $p->title ?? '','width'=>'250','height'=>'185'])
         </div>
     </a>
     <div class="content">
