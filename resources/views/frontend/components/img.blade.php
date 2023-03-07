@@ -1,12 +1,11 @@
-@php 
-    $rs100 = str_replace("photos","rs100",$source);
-    $rs200 = str_replace("photos","rs200",$source);
-    $rs300 = str_replace("photos","rs300",$source);
-    $rs400 = str_replace("photos","rs400",$source);
-    $rs500 = str_replace("photos","rs500",$source);
-    $rs600 = str_replace("photos","rs600",$source);
-    $rs800 = str_replace("photos","rs800",$source);
+@php
+    $src = 'rs'. ((!empty($src)) ? $src : '3') . '00';
+    $data_src = "data-src='".str_replace('photos', $src , $source)."'" ;
+    $srcset = (!empty($srcset)) ? $srcset : [2,3,4,5,6,8];
+    $data_srcset = "";
+    foreach($srcset as $set){
+        $data_srcset = $data_srcset.str_replace('photos', 'rs'.$set.'00' , $source).' '.$set.'00w ,';
+    }
+    $data_srcset = "data-srcset='".substr($data_srcset,0,-1)."'";
 @endphp
-<img class="responsively-lazy {{$class ?? ''}}" src="{{$rs100}}"
-   data-srcset="{{$rs200}} 200w, {{$rs300}} 300w, {{$rs400}} 400w, {{$rs500}} 500w, {{$rs600}} 600w, {{$rs800}} 800w"
-   srcset="{{$rs100}}" alt="{{$alt ?? ''}}" title="{{$alt ?? ''}}" />
+<img data-sizes="auto" {!!$data_src!!} {!!$data_srcset!!} class="lazyload {{$class ?? ''}}" />
