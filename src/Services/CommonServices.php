@@ -49,13 +49,13 @@ class CommonServices
             foreach ($html->find('img') as $e) {
                 $outertext = $e->outertext;
                 $alt = $e->alt;
-                $e->class = ($e->class) ? $e->class.' lazyload' : 'lazyload';
-                $new_outertext = $e->outertext;
-                $new_outertext = preg_replace('/(src=)/i', 'data-src=', $new_outertext);
+                $class = ($e->class) ? $e->class.' lazyload' : 'lazyload';
+                $src = $e->src;
+                $img = view('phont::frontend.components.img', ['source' => $src, 'class' => $class, 'alt' => $alt])->render();
                 if ($alt != '') {
-                    $new_outertext = "<div class='img_wrap'>".$new_outertext."<div class='img_alt'>".$alt.'</div>'.'</div>';
+                    $img = "<div class='img_wrap1'>".$img."<div class='img_alt'>".$alt.'</div>'.'</div>';
                 }
-                $content = str_replace($outertext, $new_outertext, $content);
+                $content = str_replace($outertext, $img, $content);
             }
             $post->content = $content;
         }
