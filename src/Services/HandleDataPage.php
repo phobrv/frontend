@@ -2,7 +2,6 @@
 
 namespace Phont\Frontend\Services;
 
-use Phobrv\BrvCore\Repositories\PostMetaRepository;
 use Phobrv\BrvCore\Repositories\PostRepository;
 use Phobrv\BrvCore\Repositories\TermRepository;
 use Phobrv\BrvCore\Services\ConfigLangService;
@@ -13,8 +12,6 @@ class HandleDataPage
     protected $commonServices;
 
     protected $postRepository;
-
-    protected $postMetaRepository;
 
     protected $postService;
 
@@ -28,7 +25,6 @@ class HandleDataPage
         CommonServices $commonServices,
         HandleDataMenuPage $handleDataMenuPage,
         ConfigLangService $configLangService,
-        PostMetaRepository $postMetaRepository,
         PostRepository $postRepository,
         PostServices $postService,
         TermRepository $termRepository
@@ -39,7 +35,6 @@ class HandleDataPage
         $this->termRepository = $termRepository;
         $this->postRepository = $postRepository;
         $this->postService = $postService;
-        $this->postMetaRepository = $postMetaRepository;
     }
 
     public function handleSearchPage($request)
@@ -62,7 +57,7 @@ class HandleDataPage
     public function handlePostPage($request, $slug)
     {
         $data = $request->all();
-        $data['post'] = $this->postRepository->with(['terms', 'postMetas'])->orderBy('created_at', 'desc')->findWhere(['slug' => $slug])->first();
+        $data['post'] = $this->postRepository->with(['terms'])->orderBy('created_at', 'desc')->findWhere(['slug' => $slug])->first();
         if (! isset($data['post']) || $data['post']->subtype == 'home') {
             return $data;
         }
@@ -74,8 +69,8 @@ class HandleDataPage
                 ['slug' => $slug, 'name' => $data['post']->title],
             ]
         );
-        $data['meta'] = $this->postService->getMeta($data['post']->postMetas, false);
-        $data['sidebars'] = $data['post']->meta['box_sidebar'];
+        $data['meta'] = $this->postService->getMeta($data['post']->meta ?? [], false);
+        $data['sidebars'] = $data['post']->meta['box_sidebar'] ?? [];
         $data = $this->handleDataPostType($data);
 
         return $data;
@@ -165,11 +160,11 @@ class HandleDataPage
     {
         $data = $request->all();
 
-        $data['post'] = $page = $this->postRepository->with('terms')->with('postMetas')->where('subtype', 'home')->first();
+        $data['post'] = $page = $this->postRepository->with('terms')->where('subtype', 'home')->first();
         $data = $this->configLangService->handleTransPage($data);
 
         if ($page) {
-            $data['meta'] = $this->postService->getMeta($page->postMetas, false);
+            $data['meta'] = $data['post']->meta;
             $data['view_page'] = $this->handleViewPage($data);
         }
 
@@ -200,14 +195,14 @@ class HandleDataPage
         if (isset($data['post']->terms) && count($data['post']->terms)) {
             $category = $data['post']->terms->where('taxonomy', '<>', 'lang')->first();
             if ($category) {
-                $menus = $this->postMetaRepository->with('post')->where('key', 'regexp', 'category')->where('value', $category['id'])->get();
+                // $menus = $this->postMetaRepository->with('post')->where('key', 'regexp', 'category')->where('value', $category['id'])->get();
 
-                foreach ($menus as $_menu) {
-                    $post = $_menu->post;
-                    if ($post['lang'] == config('app.locale') && $post['subtype'] != 'home') {
-                        $menu = $post;
-                    }
-                }
+                // foreach ($menus as $_menu) {
+                //     $post = $_menu->post;
+                //     if ($post['lang'] == config('app.locale') && $post['subtype'] != 'home') {
+                //         $menu = $post;
+                //     }
+                // }
                 if (isset($menu)) {
                     $data['breadcrumb'] = $this->commonServices->genBreadcrumbsFrontEnd(
                         [

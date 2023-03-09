@@ -2,7 +2,6 @@
 
 namespace Phont\Frontend\Services;
 
-use Phobrv\BrvCore\Repositories\PostMetaRepository;
 use Phobrv\BrvCore\Repositories\PostRepository;
 use Phobrv\BrvCore\Repositories\TermRepository;
 use Phobrv\BrvCore\Services\ConfigLangService;
@@ -14,22 +13,19 @@ class HandleDataMenuPage
 
     protected $postRepository;
 
-    protected $postMetaRepository;
-
     protected $postService;
 
     protected $configLangService;
 
     protected $termRepository;
 
-    public function __construct(CommonServices $commonServices, ConfigLangService $configLangService, PostMetaRepository $postMetaRepository, PostRepository $postRepository, PostServices $postService, TermRepository $termRepository)
+    public function __construct(CommonServices $commonServices, ConfigLangService $configLangService, PostRepository $postRepository, PostServices $postService, TermRepository $termRepository)
     {
         $this->configLangService = $configLangService;
         $this->commonServices = $commonServices;
         $this->termRepository = $termRepository;
         $this->postRepository = $postRepository;
         $this->postService = $postService;
-        $this->postMetaRepository = $postMetaRepository;
     }
 
     public function handle($data)
