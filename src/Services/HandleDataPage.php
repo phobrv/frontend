@@ -75,7 +75,7 @@ class HandleDataPage
             ]
         );
         $data['meta'] = $this->postService->getMeta($data['post']->postMetas, false);
-        $data['sidebars'] = $this->postService->getMultiMetaByKey($data['post']->postMetas, 'box_sidebar');
+        $data['sidebars'] = $data['post']->meta['box_sidebar'];
         $data = $this->handleDataPostType($data);
 
         return $data;
@@ -115,7 +115,7 @@ class HandleDataPage
                 }
             }
         }
-        $gallery = $this->postService->getMultiMetaByKey($data['post']->postMetas, 'image');
+        $gallery = $data['post']->meta['gallery'];
         foreach ($gallery as $key => $value) {
             array_push($data['gallery'], $value);
         }

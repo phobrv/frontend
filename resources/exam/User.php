@@ -28,6 +28,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
+        'meta',
     ];
 
     /**
@@ -49,6 +51,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'meta' => 'array',
     ];
 
     /**
@@ -58,7 +61,6 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
-        'meta',
     ];
 
     public function posts()
@@ -66,23 +68,8 @@ class User extends Authenticatable
         return $this->hasMany('Phobrv\BrvCore\Models\Post');
     }
 
-    public function userMetas()
-    {
-        return $this->hasMany('Phobrv\BrvCore\Models\UserMeta');
-    }
-
     public function oauthProviders()
     {
         return $this->hasMany(OAuthProvider::class);
-    }
-
-    public function getMetaAttribute()
-    {
-        $meta = [];
-        foreach ($this->userMetas as  $pm) {
-            $meta[$pm->key] = $pm->value;
-        }
-
-        return $meta;
     }
 }
