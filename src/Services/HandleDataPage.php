@@ -110,7 +110,7 @@ class HandleDataPage
                 }
             }
         }
-        $gallery = $data['post']->meta['gallery'];
+        $gallery = $data['post']->meta['gallery'] ?? [];
         foreach ($gallery as $key => $value) {
             array_push($data['gallery'], $value);
         }
