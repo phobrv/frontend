@@ -2,18 +2,21 @@
 
 namespace Phont\Frontend\Services;
 
-use Illuminate\Support\Facades\DB;
+use Phobrv\BrvCore\Repositories\PostRepository;
 
 class RatingService
 {
+    protected $postRepository;
+
+    public function __construct(PostRepository $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
+
     public function reportRatingV2($post_id)
     {
-        $post = DB::table('brv_posts')->find($post_id);
-        $metas = DB::table('brv_post_meta')
-            ->where('post_id', $post_id)
-            ->where('key', 'ratingData')
-            ->get();
-
+        $post = $this->postRepository->find($post_id);
+        $metas = $post->meta['ratingData'] ?? [];
         $out = [
             'post' => $post,
             'post_id' => $post_id,
@@ -28,27 +31,28 @@ class RatingService
             'contents' => [],
         ];
         $contents = [];
-        $number = 0;
-        foreach ($metas as $meta) {
-            $value = json_decode($meta->value);
-
-            if (! empty($value->active)) {
-                array_push($contents, $value);
-                $out['total'] += $value->rating;
+        foreach ($metas as $key => $value) {
+            if ($key == 'value') {
+                $valueRate = json_decode($value);
+            }
+            if (! empty($valueRate->active)) {
+                array_push($contents, $valueRate);
+                $out['total'] += $valueRate->rating;
                 $out['number']++;
-                if ($value->rating > 4) {
+                if ($valueRate->rating > 4) {
                     $out['rating5']++;
-                } elseif ($value->rating > 3) {
+                } elseif ($valueRate->rating > 3) {
                     $out['rating4']++;
-                } elseif ($value->rating > 2) {
+                } elseif ($valueRate->rating > 2) {
                     $out['rating3']++;
-                } elseif ($value->rating > 1) {
+                } elseif ($valueRate->rating > 1) {
                     $out['rating2']++;
                 } else {
                     $out['rating1']++;
                 }
             }
         }
+
         $out['contents'] = $contents;
         if ($out['number']) {
             $out['medium'] = round($out['total'] / $out['number'], 2);

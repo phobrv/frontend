@@ -10,8 +10,12 @@
                         </div>
                         <h3>{{ $p->title ?? '' }}</h3>
                         <div class="price">
-                            <div class="cur">{{ number_format($p['meta']['price'] ?? 0, 0, ',', '.') }}đ</div>
-                            <div class="old">{{ number_format($p['meta']['price_old'] ?? 0, 0, ',', '.') }}đ</div>
+                            <div class="cur">
+                                @if(!empty($p['meta']['price'])) {{ number_format($p['meta']['price'] ?? 0) }} đ @endif
+                            </div>
+                            <div class="old"> 
+                                @if(!empty($p['meta']['price_old'])) {{ number_format($p['meta']['price_old'] ?? 0) }} đ @endif
+                            </div>
                         </div>
                     </a>
                 </li>

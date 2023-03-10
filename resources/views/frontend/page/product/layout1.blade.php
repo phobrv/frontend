@@ -14,8 +14,12 @@
                             <h1 class="font30">{{ $data['post']->title ?? '' }}</h1>
                             <hr style="opacity:0.25">
                             <div class="price">
-                                <span class="cur">{{ number_format($data['meta']['price'] ?? 0) }}đ</span>
-                                <span class="old">{{ number_format($data['meta']['price_old'] ?? 0) }}đ</span>
+                                <span class="cur">
+                                    @if(!empty($data['meta']['price'])) {{ number_format($data['meta']['price'] ?? 0) }}đ @endif
+                                </span>
+                                <span class="old">
+                                    @if(!empty($data['meta']['price_old'])) {{ number_format($data['meta']['price_old'] ?? 0) }}đ @endif
+                                </span>
                             </div>
                             <hr>
                             <div class="row">

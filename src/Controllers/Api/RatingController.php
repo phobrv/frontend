@@ -66,12 +66,11 @@ class RatingController extends Controller
     {
         $data = $request->all();
         $post = $this->postRepository->find($data['post_id']);
-        $this->postRepository->insertMeta(
+        $this->postRepository->updateMeta(
             $post,
             [
                 'ratingData' => json_encode($data),
-            ],
-            'multi',
+            ]
         );
         $report = $this->ratingService->reportRatingV2($data['post_id']);
 
