@@ -65,11 +65,14 @@ class RatingController extends Controller
     public function ratingv2(Request $request)
     {
         $data = $request->all();
+        $data['id'] = time();
         $post = $this->postRepository->find($data['post_id']);
+        $ratingData = $post->meta['ratingData'] ?? [];
+        array_push($ratingData, $data);
         $this->postRepository->updateMeta(
             $post,
             [
-                'ratingData' => json_encode($data),
+                'ratingData' => $ratingData,
             ]
         );
         $report = $this->ratingService->reportRatingV2($data['post_id']);

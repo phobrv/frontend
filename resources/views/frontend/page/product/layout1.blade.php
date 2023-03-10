@@ -204,6 +204,7 @@
                             url: url,
                             type: 'get',
                             success: function(out) {
+
                                 document.getElementById("rating_area").innerHTML = out;
                                 Root.eventSubmit()
                             }
