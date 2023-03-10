@@ -44,7 +44,7 @@ class RatingController extends Controller
         $data = $request->all();
         $rating = $data['rating'];
         $key = $rating * 10;
-        $post = $this->postRepository->with('postMetas')->find($data['id']);
+        $post = $this->postRepository->find($data['id']);
         $meta = $post->meta;
         $ratingMeta = isset($meta['ratingMeta']) ? json_decode($meta['ratingMeta'], true) : [];
         $ratingMeta[$key] = isset($ratingMeta[$key]) ? $ratingMeta[$key] + 1 : 1;
@@ -57,9 +57,9 @@ class RatingController extends Controller
         $arrayMeta['ratingMeta'] = json_encode($ratingMeta);
         $arrayMeta['ratingTotal'] = $number;
         $arrayMeta['rating'] = round($total / $number, 2);
-        $this->postRepository->insertMeta($post, $arrayMeta);
+        $this->postRepository->updateMeta($post, $arrayMeta);
 
-        return view('phont::frontend.components.ratingShow', ['rating' => round($total / $number, 2), 'total' => $number, 'confirm' => '1'])->render();
+        return view('phont::frontend.components.ratingSimple.ratingShow', ['rating' => round($total / $number, 2), 'total' => $number, 'confirm' => '1'])->render();
     }
 
     public function ratingv2(Request $request)

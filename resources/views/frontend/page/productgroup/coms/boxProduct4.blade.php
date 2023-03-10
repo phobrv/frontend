@@ -14,9 +14,11 @@
             </a>
         </div>
         <div class="price mt-2 mb-2">
-            <span class="new  text-red text-bold">{{ number_format($p['meta']['price'] ?? 0) }} đ</span>
+            <span class="new  text-red text-bold">
+                @if(!empty($p['meta']['price'])) {{ number_format($p['meta']['price'] ?? 0) }} đ @endif
+            </span>
             <span class="old  text-dark text-light-through ">
-                {{ number_format($p['meta']['price_old'] ?? 0) }}
+                @if(!empty($p['meta']['price_old'])) {{ number_format($p['meta']['price_old'] ?? 0) }} @endif
             </span>
         </div>
         <button id="product{{ $p->id }}" class="btn_add_to_cart order_product2 ld-ext-right" data-id="{{ $p->id ?? '' }}">
