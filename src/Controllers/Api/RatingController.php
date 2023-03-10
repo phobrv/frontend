@@ -83,7 +83,7 @@ class RatingController extends Controller
     public function getRatingV2Data($id)
     {
         $report = $this->ratingService->reportRatingV2($id);
-
+        // return response()->json($report);
         return view('phont::frontend.components.rating.index', ['data' => $report])->render();
     }
 }

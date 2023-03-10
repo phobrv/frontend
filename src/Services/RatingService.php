@@ -16,7 +16,6 @@ class RatingService
     public function reportRatingV2($post_id)
     {
         $post = $this->postRepository->find($post_id);
-        $metas = $post->meta['ratingData'] ?? [];
         $out = [
             'post' => $post,
             'post_id' => $post_id,
@@ -30,22 +29,22 @@ class RatingService
             'rating5' => 0,
             'contents' => [],
         ];
+
         $contents = [];
-        foreach ($metas as $key => $value) {
-            if ($key == 'value') {
-                $valueRate = json_decode($value);
-            }
-            if (! empty($valueRate->active)) {
-                array_push($contents, $valueRate);
-                $out['total'] += $valueRate->rating;
+
+        $ratingData = $post->meta['ratingData'] ?? [];
+        foreach ($ratingData as $rate) {
+            if (! empty($rate['active'])) {
+                array_push($contents, $rate);
+                $out['total'] += $rate['rating'];
                 $out['number']++;
-                if ($valueRate->rating > 4) {
+                if ($rate['rating'] > 4) {
                     $out['rating5']++;
-                } elseif ($valueRate->rating > 3) {
+                } elseif ($rate['rating'] > 3) {
                     $out['rating4']++;
-                } elseif ($valueRate->rating > 2) {
+                } elseif ($rate['rating'] > 2) {
                     $out['rating3']++;
-                } elseif ($valueRate->rating > 1) {
+                } elseif ($rate['rating'] > 1) {
                     $out['rating2']++;
                 } else {
                     $out['rating1']++;

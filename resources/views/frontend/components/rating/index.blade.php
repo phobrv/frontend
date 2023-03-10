@@ -8,13 +8,13 @@
                     <div class="avatar">
                         @include('svg.person_svg')
                     </div>
-                    <div class="name">{{ $comment->name ?? '' }}</div>
+                    <div class="name">{{ $comment['name'] ?? '' }}</div>
                 </div>
                 <div class="right">
                     <div class="comment">
-                        {{ $comment->content ?? '' }}
+                        {{ $comment['content'] ?? '' }}
                     </div>
-                    @include('phont::frontend.components.rating.ratingShow', ['rating' => $comment->rating ?? 5])
+                    @include('phont::frontend.components.rating.ratingShow', ['rating' => $comment['rating'] ?? 5])
                 </div>
             </li>
         @endforeach
