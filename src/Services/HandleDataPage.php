@@ -164,7 +164,7 @@ class HandleDataPage
         $data = $this->configLangService->handleTransPage($data);
 
         if ($page) {
-            $data['meta'] = $data['post']->meta;
+            $data['meta'] = $this->postService->getMeta($data['post']->meta ?? [], false);
             $data['view_page'] = $this->handleViewPage($data);
         }
 
