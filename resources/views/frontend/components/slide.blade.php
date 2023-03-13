@@ -1,10 +1,10 @@
 <div class="hidden-md-down">
   <div id="slidePc" class="swiper slideStyle1">
     <div class="swiper-wrapper">
-      @isset($data['meta']['album_term_pc_source'])
-      @foreach($data['meta']['album_term_pc_source'] as $p)
+      @isset($data['meta']['album_post_pc_source']->meta['images'])
+      @foreach($data['meta']['album_post_pc_source']->meta['images'] as $p)
       <div class="swiper-slide">
-        <img src="{{ $p->thumb }}" alt="{{$p->title}}" class="img_cover">
+        <img src="{{ $p['thumb'] }}" alt="{{$p['title']}}" class="img_cover">
       </div>
       @endforeach
       @endif
@@ -17,10 +17,10 @@
 <div class="hidden-lg-up">
   <div id="slideMobile" class="swiper slideStyle1">
     <div class="swiper-wrapper">
-      @isset($data['meta']['album_term_mobile_source'])
-      @foreach($data['meta']['album_term_mobile_source'] as $p)
+      @isset($data['meta']['album_post_mobile_source']->meta['images'])
+      @foreach($data['meta']['album_post_mobile_source']->meta['images'] as $p)
       <div class="swiper-slide">
-        <img src="{{ $p->thumb }}" alt="{{$p->title}}" class="img_cover">
+        <img src="{{ $p['thumb'] }}" alt="{{$p['title']}}" class="img_cover">
       </div>
       @endforeach
       @endif

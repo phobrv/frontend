@@ -1,5 +1,7 @@
 @extends('phont::frontend.layout.1col')
 @section('content')
+@include('phont::frontend.components.slide')
+
     <div class="container">
       @include('phont::frontend.components.boxFormWithReCaptcha')
     <div class="row">
