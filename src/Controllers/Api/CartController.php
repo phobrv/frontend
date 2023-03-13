@@ -55,9 +55,6 @@ class CartController extends Controller
         $this->postService = $postService;
         $this->receiveDataRepository = $receiveDataRepository;
         $this->configs = $optionServices->getConfigs($optionRepository->all());
-        $this->configs['mainMenu'] = $handleMenuService->getMenus($this->configs, 'main_menu', 'disablePrivateMenu');
-        $this->configs['fconnectMenu'] = $handleMenuService->getMenus($this->configs, 'fconnect_menu', 'disablePrivateMenu');
-        $this->configs['productMenu'] = $handleMenuService->getMenus($this->configs, 'product_menu', 'disablePrivateMenu');
     }
 
     public function success(Request $request, $order_id)
